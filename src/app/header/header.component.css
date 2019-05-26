@@ -1,0 +1,25 @@
+/* HEADER */
+
+header {
+	position: fixed;
+	top: 0;
+	z-index: 99;
+}
+
+header, nav {
+	background-color: #074684;
+}
+
+header nav .navbar-brand {
+	font-size: 1.5em;
+	font-weight: bold;
+	color: #0ea5c6 !important;
+}
+
+header nav .navbar-brand .secondary-color {
+	color: #f2efb6;
+}
+
+.nav-link:hover {
+	color: #f2efb6 !important;
+}

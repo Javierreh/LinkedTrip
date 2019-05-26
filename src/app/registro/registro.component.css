@@ -1,0 +1,87 @@
+main {
+	padding-top: 110px;
+	padding-bottom: 40px;
+	background-image: url('./../../assets/images/campingpeople.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 8% 10%;
+	background-color: rgba(0,0,0,0.2);
+	background-blend-mode: soft-light;
+}
+
+main .card {
+	width: 500px;
+	margin: 0 auto;
+	-webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+	border-style: none;
+	background-color: rgba(255,255,255,0.93);
+}
+
+main .card .card-header {
+	color: #f2efb6;
+	background-color: #074684;
+	letter-spacing: 2px;
+	padding-left: 50px;
+}
+
+main .card img {
+	position: absolute;
+	top: 12px;
+	right: 45px;
+	width: 60px;
+}
+
+main form .form-group {
+	margin-bottom: 35px;
+}
+
+.buttonReg {
+	border-color: #074684;
+	color: #074684;
+}
+
+.buttonReg:hover {
+	color: #f2efb6;
+	background-color: #074684;
+	border-color: #0ea5c6;
+}
+
+input.ng-invalid.ng-touched {
+	border: 1px solid red;
+	background-image: url('./../../assets/images/wrong.png');
+	background-repeat: no-repeat;
+	background-size: 30px;
+	background-position: 96% 50%;
+}
+
+input.ng-valid.ng-touched {
+	border: 1px solid green;
+	background-image: url('./../../assets/images/check.png');
+	background-repeat: no-repeat;
+	background-size: 30px;
+	background-position: 96% 50%;
+}
+
+.titleError {
+	position: absolute;
+	color: darkred;
+	padding: 1.5px 0 0 1.5px;
+	font-size: 0.8em
+}
+
+@media (max-width: 576px) {
+	main .card {
+		width: 90%;
+		/*margin: 110px auto 40px;*/
+	}
+
+	main .card .card-header {
+		padding-left: 8%;
+	}
+
+	main .card img {
+		right: 6%;
+	}
+}

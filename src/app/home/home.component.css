@@ -1,0 +1,83 @@
+/* Hero Section */
+
+.jumbotron {
+	margin-top: 69px;
+	background-image: url('./../../assets/images/hero.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	padding: 150px 0 400px 0;
+	background-position: 65% 50%;
+	color: white;
+	background-color: rgba(0,0,0,0.35);
+	background-blend-mode: soft-light;
+}
+
+.jumbotron h1 {
+	font-weight: bold;
+	font-size: 2.5em;
+	letter-spacing: 2px;
+	margin-bottom: 25px;
+}
+
+.jumbotron .container a {
+	margin-top: 35px;
+	margin-right: 20px;
+	padding: 10px 30px;
+	font-size: 1.2em;
+}
+
+.jumbotron .container a:hover {
+	color: #f2efb6;
+	background-color: #074684;
+	border-color: #0ea5c6;
+	-webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+}
+
+.jumbotron .lead {
+	letter-spacing: 1px;
+	font-size: 1.25em;
+}
+
+
+/* Main Section*/
+
+main section article {
+	padding: 40px 0;
+}
+
+main section article img {
+	width: 230px;
+	height: 230px;
+}
+
+.buttonReg {
+	margin: 40px;
+	font-size: 1.2em;
+	padding: 15px 40px;
+	border-color: #074684;
+	color: #074684;
+}
+
+.buttonReg:hover {
+	color: #f2efb6;
+	background-color: #074684;
+	border-color: #0ea5c6;
+}
+
+
+/* Media Queries */
+
+@media (max-width: 992px) {
+	main section article img {
+		width: 200px;
+		height: 200px;
+	}
+}
+
+@media (max-width: 576px) {
+	.jumbotron .container a {
+		display: block;
+	}
+}

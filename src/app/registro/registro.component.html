@@ -1,0 +1,98 @@
+<main>
+
+	<div class="card">
+
+		<img src="./../../assets/images/nuevo-usuario.png" alt="">
+
+		<h2 class="card-header py-4 rounded-top">
+			<strong>Regístrate</strong>
+		</h2>
+
+  		<div class="card-body px-lg-5 pt-0">
+		
+			<form novalidate class="mt-4" [formGroup]="formulario" (ngSubmit)="onSubmit()">
+
+				<div class="form-group">
+					<input class="form-control form-control-lg" type="text" formControlName="name" placeholder="Nombre">
+					
+					<div class="titleError" *ngIf="formulario.controls['name'].value == '' && formulario.controls['name'].touched">
+						Campo obligatorio
+					</div>
+
+					<div class="titleError" *ngIf="formulario.controls['name'].errors && formulario.controls['name'].touched && formulario.controls['name'].value != ''">
+						Debe tener entre 2-20 caracteres
+					</div>
+				</div>
+
+				<div class="form-group">
+					<input class="form-control form-control-lg" type="text" formControlName="surname" placeholder="Apellidos">
+
+					<div class="titleError" *ngIf="formulario.controls['surname'].value == '' && formulario.controls['surname'].touched">
+						Campo obligatorio
+					</div>
+
+					<div class="titleError" *ngIf="formulario.controls['surname'].errors && formulario.controls['surname'].touched && formulario.controls['surname'].value != ''">
+						Debe tener entre 2-50 caracteres
+					</div>
+				</div>
+
+				<div class="form-group">
+					<input class="form-control form-control-lg" type="text" formControlName="username" placeholder="Usuario">
+
+					<div class="titleError" *ngIf="formulario.controls['username'].value == '' && formulario.controls['username'].touched">
+						Campo obligatorio
+					</div>
+
+					<div class="titleError" *ngIf="formulario.controls['username'].errors && formulario.controls['username'].touched && formulario.controls['username'].value != ''">
+						Debe tener entre 6-20 caracteres
+					</div>
+				</div>
+
+				<div class="form-group">
+					<input class="form-control form-control-lg" type="password" formControlName="password" placeholder="Contraseña">
+
+					<div class="titleError" *ngIf="formulario.controls['password'].value == '' && formulario.controls['password'].touched">
+						Campo obligatorio
+					</div>
+
+					<div class="titleError" *ngIf="formulario.controls['password'].touched && formulario.controls['password'].errors && (formulario.controls['password'].errors.minlength || formulario.controls['password'].errors.maxlength); else elsePassword">
+						Debe tener entre 6-12 caracteres
+					</div>
+
+					<ng-template #elsePassword>
+						<div class="titleError" *ngIf="formulario.controls['password'].touched && formulario.controls['password'].errors && formulario.controls['password'].errors.pattern">
+							Incluye al menos un número
+						</div>
+					</ng-template>
+
+				</div>
+
+				<div class="form-group">
+					<input class="form-control form-control-lg" type="email" formControlName="email" placeholder="Email">
+					
+					<div class="titleError" *ngIf="formulario.controls['email'].value == '' && formulario.controls['email'].touched">
+						Campo obligatorio
+					</div>
+
+					<div class="titleError" *ngIf="formulario.controls['email'].touched && formulario.controls['email'].errors && formulario.controls['email'].errors.maxlength; else elseEmail">
+						Debe tener menos de 100 caracteres
+					</div>
+
+					<ng-template #elseEmail>
+						<div class="titleError" *ngIf="formulario.controls['email'].touched && formulario.controls['email'].errors && formulario.controls['email'].errors.pattern">
+							Introduce un email válido
+						</div>
+					</ng-template>
+				</div>
+
+				<input class="btn btn-outline-dark btn-lg btn-rounded btn-block mb-2 buttonReg" type="submit" value="Registrar" [disabled]="!formulario.valid">
+
+			</form>
+
+		</div>
+
+	</div>
+
+</main>
+
+

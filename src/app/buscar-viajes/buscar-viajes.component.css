@@ -1,0 +1,41 @@
+main {
+	padding-top: 130px;
+	padding-bottom: 60px;
+}
+
+main .container .title-buscar {
+	color: #f2efb6;
+	background-color: #074684;
+	display: inline-block;
+	padding: 15px 20px 5px;
+	border-radius: 10px 10px 0 0;
+}
+
+main .container .title-buscar h2 {
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+main .container .body-buscar {
+	border: 1px solid #aaa;
+	border-radius: 0 5px 5px;
+}
+
+main form label {
+	font-size: 0.9em;
+	margin-bottom: 0;
+}
+
+.sufijo span {
+	font-size: 0.9em;
+	color: #555;
+	position: absolute;
+	top: 51.2%;
+	right: 20px;
+	transition: right 0.3s;
+}
+
+.sufijo input:focus + span, .sufijo input:hover + span {
+	right: 40px;
+}
+

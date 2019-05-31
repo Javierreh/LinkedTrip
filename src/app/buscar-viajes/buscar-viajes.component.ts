@@ -16,11 +16,19 @@ export class BuscarViajesComponent implements OnInit {
 			fecha_inicio: new FormControl(''),
 			fecha_fin: new FormControl(''),
 			duracion: new FormControl(''),
-
+			viajeros_max: new FormControl(''),
+			tipo_turismo: new FormControl(''),
+			tipo_alojamiento: new FormControl(''),
+			nivel_economico: new FormControl('')
 		});
 	}
 
-  ngOnInit() {
-  }
+	ngOnInit() {
+	}
+
+	onSubmit() {
+		console.log(this.formulario.value);
+		this.formulario.reset();
+	}
 
 }

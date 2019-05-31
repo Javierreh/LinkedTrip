@@ -52,20 +52,11 @@ main section article img {
 	height: 230px;
 }
 
-.buttonReg {
+.boton {
 	margin: 40px;
 	font-size: 1.2em;
 	padding: 15px 40px;
-	border-color: #074684;
-	color: #074684;
 }
-
-.buttonReg:hover {
-	color: #f2efb6;
-	background-color: #074684;
-	border-color: #0ea5c6;
-}
-
 
 /* Media Queries */
 

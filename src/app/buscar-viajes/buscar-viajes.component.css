@@ -1,6 +1,6 @@
-main {
+main .buscador {
 	padding-top: 130px;
-	padding-bottom: 60px;
+	padding-bottom: 40px;
 }
 
 main .container .title-buscar {
@@ -11,14 +11,16 @@ main .container .title-buscar {
 	border-radius: 10px 10px 0 0;
 }
 
+
 main .container .title-buscar h2 {
-	font-size: 1.3em;
+	font-size: 1.1em;
 	font-weight: bold;
 }
 
 main .container .body-buscar {
 	border: 1px solid #aaa;
 	border-radius: 0 5px 5px;
+	background-color: #f7f7f7;
 }
 
 main form label {
@@ -37,5 +39,41 @@ main form label {
 
 .sufijo input:focus + span, .sufijo input:hover + span {
 	right: 40px;
+}
+
+.boton {
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+hr {
+	border-width: 1.5px;
+}
+
+.card {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	-webkit-box-shadow: 2px 1.5px 4px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: 2px 1.5px 4px 0px rgba(0,0,0,0.2);
+	box-shadow: 2px 1.5px 4px 0px rgba(0,0,0,0.2);
+}
+
+.card-body {
+	padding: 15px;
+}
+
+.card-body h5 {
+	font-size: 1.15em;
+	margin-bottom: 2px;
+}
+
+.card-body p {
+	font-size: 0.85em;
+	color: #888;
+}
+
+main .resultados {
+	padding-top: 20px;
+	background-color: #f9f9f9;
 }
 

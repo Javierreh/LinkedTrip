@@ -9,6 +9,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { BuscarViajesComponent } from './buscar-viajes/buscar-viajes.component';
+import { DetalleViajeComponent } from './detalle-viaje/detalle-viaje.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { BuscarViajesComponent } from './buscar-viajes/buscar-viajes.component';
     RegistroComponent,
     HeaderComponent,
     FooterComponent,
-    BuscarViajesComponent
+    BuscarViajesComponent,
+    DetalleViajeComponent
   ],
   imports: [
     BrowserModule,

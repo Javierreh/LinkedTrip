@@ -1,3 +1,5 @@
+/* Zona del buscador */
+
 main .buscador {
 	padding-top: 130px;
 	padding-bottom: 40px;
@@ -10,7 +12,6 @@ main .container .title-buscar {
 	padding: 15px 20px 5px;
 	border-radius: 10px 10px 0 0;
 }
-
 
 main .container .title-buscar h2 {
 	font-size: 1.1em;
@@ -50,30 +51,167 @@ hr {
 	border-width: 1.5px;
 }
 
-.card {
-	margin-top: 20px;
-	margin-bottom: 20px;
-	-webkit-box-shadow: 2px 1.5px 4px 0px rgba(0,0,0,0.2);
-	-moz-box-shadow: 2px 1.5px 4px 0px rgba(0,0,0,0.2);
-	box-shadow: 2px 1.5px 4px 0px rgba(0,0,0,0.2);
-}
 
-.card-body {
-	padding: 15px;
-}
-
-.card-body h5 {
-	font-size: 1.15em;
-	margin-bottom: 2px;
-}
-
-.card-body p {
-	font-size: 0.85em;
-	color: #888;
-}
+/* Zona de los resultados de la busqueda */
 
 main .resultados {
 	padding-top: 20px;
 	background-color: #f9f9f9;
+}
+
+main .resultados .card {
+	cursor: pointer;
+	-webkit-box-shadow: 2px 1.5px 4px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: 2px 1.5px 4px 0px rgba(0,0,0,0.2);
+	box-shadow: 2px 1.5px 4px 0px rgba(0,0,0,0.2);
+	transition: transform 0.3s;
+}
+
+main .resultados .card:hover {
+	transform: scale(1.015);
+	transition: 0.5s;
+}
+
+
+/* ------------------------ */
+
+main .resultados .card-iconos {
+	margin-top: 0;
+	background-color: #f3f3f3;
+	padding-top: 14px;
+	padding-bottom: 10px;
+}
+
+main .resultados .card-iconos div {
+	width: 33.33%;
+	text-align: center;
+	color: rgba(7,70,132,0.7);
+}
+
+main .resultados .card-iconos i {
+	font-size: 1.4em;
+}
+
+main .resultados .card-iconos p {
+	font-size: 0.75em;
+	margin-bottom: 0;
+}
+
+
+/* ----------------------- */
+
+main .resultados .card-body {
+	padding: 15px;
+}
+
+main .resultados .card-body h5 {
+	font-size: 1.1em;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+main .resultados .card-body p {
+	font-size: 0.85em;
+	color: #888;
+}
+
+
+/* ----------------------- */
+
+main .resultados .card .fechas p{
+	font-size: 0.9em;
+	color: rgba(7,70,132,0.7);
+}
+
+main .resultados .card .fechas .fa-calendar-alt {
+	font-size: 1.4em;
+	padding: 0px 15px;
+}
+
+
+/* Cosas sobre la imagen de cabecera */
+
+main .resultados .card .card-cabecera {
+	position: relative;
+}
+
+main .resultados .card .userprofile {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	width: 70px;
+	height: 70px;
+	background-image: url('../../assets/images/traveler.jpeg');
+	background-size: cover;
+	border-radius: 50%;
+	border: 2px solid #f7f7f7;
+	overflow: hidden;
+	-webkit-box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.2);
+	-moz-box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.2);
+	box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.2);
+	transition: transform 0.3s, border-color 0.3s;
+}
+
+main .resultados .card .userprofile:hover {
+	border-color: #0ea5c6;
+	transform: scale(1.04);
+	transition: transform 0.5s, border-color 0.5s;
+}
+
+main .resultados .card .userprofile img {
+	width: 100%;
+}
+
+
+/* ---------------- */
+
+.contenedor-icono-users {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 4.5px 6px 0px;
+	background-color: rgb(243,243,243);
+	color: rgba(7,70,132,0.7);
+}
+
+.contenedor-icono-users .fa-users {
+	font-size: 1.5em;
+}
+
+.cantidad-viajeros {
+	position: absolute;
+	top: 0;
+	left: 47px;
+	padding: 9px 8px 6px 6px;
+	background-color: rgb(243,243,243);
+	color: rgba(7,70,132,0.7);
+	font-size: 0.8em;
+	display: none;
+}
+
+.contenedor-icono-users:hover + .cantidad-viajeros, .cantidad-viajeros:hover {
+	display: block;
+}
+
+/* Media queries */
+
+@media (max-width: 320px) {
+
+	main .resultados .card-iconos p {
+		font-size: 0.65em;
+	}
+
+	main .resultados .card .fechas p{
+		font-size: 0.8em;
+	}
+
+}
+
+@media (max-width: 576px) {
+	
+	.cantidad-viajeros {
+		display: block;
+	}
+
 }
 

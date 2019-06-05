@@ -1,0 +1,121 @@
+main section.detalle-viaje {
+	padding-top: 130px;
+	padding-bottom: 40px;
+}
+
+.cabecera-viaje h2 {
+	font-size: 1.3em;
+}
+
+.cabecera-viaje p.descripcion {
+	margin-bottom: 34px;
+}
+
+.cabecera-viaje p.publicado {
+	position: absolute;
+	bottom: 10px;
+	right: 20px;
+	margin-left: 20px;
+}
+
+.contenido-viaje {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.contenido-viaje .seccion-viaje h3 {
+	font-size: 1.05em;
+	margin-bottom: 0;
+	font-weight: bold;
+	background-color: #f3f3f3;
+	color: rgba(7,70,132,0.7);
+}
+
+
+/* Seccion Destinos e Itinerario */
+
+.contenido-viaje .seccion-viaje ul {
+	list-style: none;
+	margin-top: 12px;
+	margin-left: 35px;
+	margin-right: 30px;
+	display: inline-block;
+}
+
+.contenido-viaje .seccion-viaje ul li {
+	margin-bottom: 10px;
+} 
+
+.contenido-viaje .seccion-viaje ul li .fa-long-arrow-alt-right {
+	position: relative;
+	left: 0;
+	top: 4px;
+	margin-right: 8px;
+	font-size: 1.4em;
+	color: rgba(7,70,132,0.7);
+}
+
+
+/* Seccion Etiquetas */
+
+.contenido-viaje .etiquetas {
+	padding: 22px 25px 10px 45px;
+}
+
+.contenido-viaje .etiquetas div {
+	display: inline-block;
+	border: 1.2px solid rgba(7,70,132,0.7);
+	border-radius: 20px;
+	padding: 3px 15px;
+	margin: 0 10px 10px 0;
+}
+
+
+/* Seccion otros datos */
+
+.contenido-viaje .otros-datos {
+	margin: 15px 20px 20px 30px;
+}
+
+.contenido-viaje .otros-datos p i {
+	font-size: 1.6em;
+	color: rgba(7,70,132,0.7);
+	position: relative;
+	top: 4px;
+	margin-right: 12px;
+}
+
+.fa-clock {
+	margin-left: 5px;
+}
+
+
+/* Fechas */
+
+.fechas p {
+	font-size: 1em;
+	padding: 8px 20px;
+	display: inline-block;
+	background-color:#f3f3f3;
+	border-radius: 12px 12px 0 0; 
+}
+
+.fechas p i {
+	color: rgba(7,70,132,0.7);
+	font-size: 1.4em;
+	margin: auto 15px;
+}
+
+
+/* Media Queries */
+
+@media (max-width: 576px) {
+	.fechas p {
+		font-size: 0.85em;
+		padding: 8px 12px;
+	}
+
+	.fechas p i {
+		margin: auto 10px;
+	}
+}

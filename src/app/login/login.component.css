@@ -1,6 +1,6 @@
 main {
-	padding-top: 110px;
-	padding-bottom: 40px;
+	padding-top: 160px;
+	padding-bottom: 110px;
 	background-image: url('./../../assets/images/campingpeople.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -48,29 +48,6 @@ main form .form-group {
 	border-color: #0ea5c6;
 }
 
-input.ng-invalid.ng-touched {
-	border: 1px solid darkred;
-	background-image: url('./../../assets/images/wrong.png');
-	background-repeat: no-repeat;
-	background-size: 30px;
-	background-position: 96% 50%;
-}
-
-input.ng-valid.ng-touched {
-	border: 1px solid green;
-	background-image: url('./../../assets/images/check.png');
-	background-repeat: no-repeat;
-	background-size: 30px;
-	background-position: 96% 50%;
-}
-
-.titleError {
-	position: absolute;
-	color: darkred;
-	padding: 1.5px 0 0 1.5px;
-	font-size: 0.8em
-}
-
 @media (max-width: 576px) {
 	main .card {
 		width: 90%;
@@ -78,9 +55,15 @@ input.ng-valid.ng-touched {
 
 	main .card .card-header {
 		padding-left: 8%;
+		letter-spacing: 1.5px;
 	}
 
 	main .card img {
 		right: 6%;
+		width: 50px;
+	}
+
+	main .card h2 {
+		font-size: 1.3em;
 	}
 }

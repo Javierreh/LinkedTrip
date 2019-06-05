@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { BuscarViajesComponent } from './buscar-viajes/buscar-viajes.component';
 import { DetalleViajeComponent } from './detalle-viaje/detalle-viaje.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DetalleViajeComponent } from './detalle-viaje/detalle-viaje.component';
     HeaderComponent,
     FooterComponent,
     BuscarViajesComponent,
-    DetalleViajeComponent
+    DetalleViajeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

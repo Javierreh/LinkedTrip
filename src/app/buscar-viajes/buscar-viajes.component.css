@@ -207,7 +207,7 @@ main .resultados .card .userprofile img {
 
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
 	
 	.cantidad-viajeros {
 		display: block;

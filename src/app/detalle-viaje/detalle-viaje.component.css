@@ -70,6 +70,12 @@ main section.detalle-viaje {
 	margin: 0 10px 10px 0;
 }
 
+.contenido-viaje .etiquetas div:hover {
+	cursor: pointer;
+	background-color: rgba(7,70,132,1);
+	color: #f2efb6;
+}
+
 
 /* Seccion otros datos */
 
@@ -87,6 +93,12 @@ main section.detalle-viaje {
 
 .fa-clock {
 	margin-left: 5px;
+}
+
+/* Usuarios */
+
+.contenido-viaje ul.usuarios li {
+	margin-right: 20px;
 }
 
 

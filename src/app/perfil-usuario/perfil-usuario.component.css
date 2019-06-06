@@ -1,0 +1,59 @@
+main section.perfil-usuario {
+	padding-top: 130px;
+	padding-bottom: 40px;
+}
+
+.cabecera-usuario h2 {
+	font-size: 1.3em;
+}
+
+.sobre-mi {
+	padding: 3px 10px 0;
+	background-color: #f3f3f3;
+	color: rgba(7,70,132,0.7);
+	display: inline-block;
+	font-weight: bold;
+	border-radius: 10px 10px 10px 10px;
+}
+
+.sobre-mi-text {
+	padding: 10px 10px 10px 20px;
+	/*margin-right: 15px;*/
+/*	border-left: 2px solid #f3f3f3;
+*/}
+
+.username {
+	background-color: #f3f3f3;
+	padding: 8px 0 5px;
+	border-radius: 12px 12px 0 0;
+}
+
+.username i {
+	position: relative;
+	top: 3px;
+	font-size: 1.5em;
+	padding-left: 15px;
+	padding-right: 15px;
+	color: rgba(7,70,132,0.7);
+}
+
+
+/* Media Queries */
+
+@media (max-width: 576px) {
+
+	.username p {
+		font-size: 0.9em;
+	}
+
+	.username p span {
+		display: none;
+	}
+}
+
+@media (max-width: 360px) {
+
+	.username p:last-child {
+		display: none;
+	}
+}

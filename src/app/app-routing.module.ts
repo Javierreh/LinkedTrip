@@ -5,6 +5,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { LoginComponent } from './login/login.component';
 import { BuscarViajesComponent} from './buscar-viajes/buscar-viajes.component';
 import { DetalleViajeComponent} from './detalle-viaje/detalle-viaje.component';
+import { PerfilUsuarioComponent} from './perfil-usuario/perfil-usuario.component';
 
 const routes: Routes = [
 	{ path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -13,6 +14,7 @@ const routes: Routes = [
 	{ path: 'login', component: LoginComponent },
 	{ path: 'buscar/viajes', component: BuscarViajesComponent },
 	{ path: 'detalle-viaje/:id', component: DetalleViajeComponent },
+	{ path: 'perfil-usuario/:id', component: PerfilUsuarioComponent },
 	{ path: '**', redirectTo: 'home' }
 ];
 

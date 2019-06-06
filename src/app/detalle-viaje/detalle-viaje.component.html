@@ -78,7 +78,7 @@
 						<div class="p-3 d-flex flex-column bd-highlight flex-fill w-100">
 							<p class="bd-highlight">Pepita</p>
 							<p class="bd-highlight">Puntuación: 8.7</p>
-							<input class="btn btn-lg boton mt-auto bd-highlight" type="submit" value="Ver perfil">
+							<input class="btn btn-lg boton mt-auto bd-highlight" type="submit" value="Ver perfil" [routerLink]="['/perfil-usuario','1']">
 						</div>
 					</div>
 				</div>
@@ -86,27 +86,22 @@
 				<div class="col-md-6 px-0 seccion-viaje border">
 					<h3 class="p-3">VIAJEROS</h3>
 					<div class="text-muted d-flex flex-column flex-lg-row">
-						<!-- <div>
-							<img src="../../assets/images/traveler.jpeg" alt="Foto perfil del organizador" class="w-100">
-						</div>
-						<div class="p-3 d-flex flex-column bd-highlight flex-fill w-100">
-							<p class="bd-highlight">Pepita</p>
-							<p class="bd-highlight">Puntuación: 8.7</p>
-							<input class="btn btn-lg boton mt-auto bd-highlight" type="submit" value="Ver perfil">
-						</div> -->
-
+						<ul class="usuarios text-muted d-flex flex-wrap">
+							<li><i class="fas fa-long-arrow-alt-right"></i>Pepdddfffito - 8.5</li>
+							<li><i class="fas fa-long-arrow-alt-right"></i>Pepitddfffo - 8.5</li>
+							<li><i class="fas fa-long-arrow-alt-right"></i>Juanito - 7.9</li>
+							<li><i class="fas fa-long-arrow-alt-right"></i>Juanita - 6.5</li>
+							<li><i class="fas fa-long-arrow-alt-right"></i>Judddddddanita - 6.5</li>
+							<li><i class="fas fa-long-arrow-alt-right"></i>Jaddfdimito - 10</li>
+							<li><i class="fas fa-long-arrow-alt-right"></i>Jaifffdmito - 10</li>
+						</ul>
 					</div>
 				</div>
-
-				<!-- <div class="col-md-6 px-0 seccion-viaje border">
-					<h3 class="p-3">FECHAS</h3>
-					<div class="fechas text-center text-muted d-flex flex-column">
-						<p class="mb-0">12-11-2017 <i class="far fa-calendar-alt"></i> 21-11-2017</p>
-						<hr>
-						<input class="btn btn-lg boton" type="submit" value="Enviar petición">
-					</div>
-				</div> -->
 			
+			</div>
+			
+			<div class="d-block text-center my-4">
+				<input class="btn btn-lg boton" type="submit" value="Enviar petición">
 			</div>
 
 		</div>

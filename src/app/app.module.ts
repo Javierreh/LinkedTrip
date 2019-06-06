@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { BuscarViajesComponent } from './buscar-viajes/buscar-viajes.component';
 import { DetalleViajeComponent } from './detalle-viaje/detalle-viaje.component';
 import { LoginComponent } from './login/login.component';
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LoginComponent } from './login/login.component';
     FooterComponent,
     BuscarViajesComponent,
     DetalleViajeComponent,
-    LoginComponent
+    LoginComponent,
+    PerfilUsuarioComponent
   ],
   imports: [
     BrowserModule,

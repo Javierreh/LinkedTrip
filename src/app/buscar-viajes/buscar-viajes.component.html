@@ -137,6 +137,47 @@
 					</div>
 				</div>
 
+<!-- Desde aqui las pruebas de iterar -->
+				<div class="col-md-6 col-lg-6 col-xl-4 py-3" *ngFor="let viaje of viajes">
+					<div class="card h-100" [routerLink]="['/detalle-viaje', viaje.id]">
+						<div class="card-cabecera">
+							<img [src]="viaje.foto" class="card-img-top" alt="Imagen del Destino">
+							<div class="userprofile"></div>
+							<div class="contenedor-icono-users">
+								<i class="fas fa-users"></i>
+							</div>
+							<div class="cantidad-viajeros">{{ viaje.viajeros_max }}</div>
+						</div>
+
+						<div class="card-iconos d-flex flex-wrap justify-content-center">
+							<div>
+								<i class="fas fa-map-marked-alt"></i>
+								<p>4 Destinos</p>
+							</div>
+							<div>
+								<i class="fas fa-tags"></i>
+								<p>6 Etiquetas</p>
+							</div>
+							<div>
+								<i class="fas fa-bed"></i>
+								<p>{{ viaje.alojamiento }}</p>
+							</div>
+						</div>
+						
+						<div class="card-body">
+							<h5 class="card-title">{{ viaje.titulo }}</h5>
+							<p class="card-text" *ngIf="viaje.descripcion.length > 100; else elseDescripcion">{{ viaje.descripcion | slice:0:100 }}...</p>
+							<ng-template #elseDescripcion>
+								<p class="card-text">{{ viaje.descripcion }}</p>
+							</ng-template>
+						</div>
+						
+						<div class="fechas text-center mb-3 mt-2">
+							<p class="mb-0">{{ viaje.fecha_inicio | date: 'd-MM-y' }} <i class="far fa-calendar-alt"></i> {{ viaje.fecha_fin | date: 'd-MM-y'}}</p>
+						</div>
+					</div>
+				</div>
+
 			</div>
 
 		</div>

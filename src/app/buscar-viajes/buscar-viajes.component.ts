@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ViajesService } from './../viajes.service';
 
 @Component({
   selector: 'app-buscar-viajes',
@@ -9,8 +10,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class BuscarViajesComponent implements OnInit {
 
 	formulario: FormGroup;
+	viajes: any;
 
-	constructor() {
+	constructor(private viajesService: ViajesService) {
 		this.formulario = new FormGroup({
 			destino: new FormControl(''),
 			fecha_inicio: new FormControl(''),
@@ -24,6 +26,10 @@ export class BuscarViajesComponent implements OnInit {
 	}
 
 	ngOnInit() {
+		this.viajesService.getAll().subscribe((res) => {
+			this.viajes = res;
+			console.log(res);
+		});
 	}
 
 	onSubmit() {

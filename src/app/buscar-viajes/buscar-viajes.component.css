@@ -75,6 +75,11 @@ main .resultados .card:hover {
 
 /* ------------------------ */
 
+main .resultados .card-cabecera img {
+	min-height: 150px;
+	max-height: 400px;
+}
+
 main .resultados .card-iconos {
 	margin-top: 0;
 	background-color: #f3f3f3;

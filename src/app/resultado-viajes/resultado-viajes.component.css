@@ -1,0 +1,168 @@
+/* Zona de los resultados de la busqueda */
+
+.resultados {
+	padding-top: 20px;
+	padding-bottom: 40px;
+	background-color: #f9f9f9;
+}
+
+.resultados .card {
+	cursor: pointer;
+	-webkit-box-shadow: 2px 1.5px 4px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: 2px 1.5px 4px 0px rgba(0,0,0,0.2);
+	box-shadow: 2px 1.5px 4px 0px rgba(0,0,0,0.2);
+	transition: transform 0.3s;
+}
+
+.resultados .card:hover {
+	transform: scale(1.015);
+	transition: 0.5s;
+}
+
+
+/* ------------------------ */
+
+.resultados .card-cabecera img {
+	min-height: 150px;
+	max-height: 600px;
+}
+
+.resultados .card-iconos {
+	margin-top: 0;
+	background-color: #f3f3f3;
+	padding-top: 14px;
+	padding-bottom: 10px;
+}
+
+.resultados .card-iconos div {
+	width: 33.33%;
+	text-align: center;
+	color: rgba(7,70,132,0.7);
+}
+
+.resultados .card-iconos i {
+	font-size: 1.4em;
+}
+
+.resultados .card-iconos p {
+	font-size: 0.75em;
+	margin-bottom: 0;
+}
+
+
+/* ----------------------- */
+
+.resultados .card-body {
+	padding: 15px;
+}
+
+.resultados .card-body h5 {
+	font-size: 1.1em;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+.resultados .card-body p {
+	font-size: 0.85em;
+	color: #888;
+}
+
+
+/* ----------------------- */
+
+.resultados .card .fechas p{
+	font-size: 0.9em;
+	color: rgba(7,70,132,0.7);
+}
+
+.resultados .card .fechas .fa-calendar-alt {
+	font-size: 1.4em;
+	padding: 0px 15px;
+}
+
+
+/* Cosas sobre la imagen de cabecera */
+
+.resultados .card .card-cabecera {
+	position: relative;
+}
+
+.resultados .card .userprofile {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	width: 70px;
+	height: 70px;
+	background-size: cover;
+	background-position: 50% 0%;
+	border-radius: 50%;
+	border: 2px solid #f7f7f7;
+	overflow: hidden;
+	-webkit-box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.2);
+	-moz-box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.2);
+	box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.2);
+	transition: transform 0.3s, border-color 0.3s;
+}
+
+.resultados .card .userprofile:hover {
+	border-color: #0ea5c6;
+	transform: scale(1.04);
+	transition: transform 0.5s, border-color 0.5s;
+}
+
+.resultados .card .userprofile img {
+	width: 100%;
+}
+
+
+/* ---------------- */
+
+.contenedor-icono-users {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 4.5px 6px 0px;
+	background-color: rgb(243,243,243);
+	color: rgba(7,70,132,0.7);
+}
+
+.contenedor-icono-users .fa-users {
+	font-size: 1.5em;
+}
+
+.cantidad-viajeros {
+	position: absolute;
+	top: 0;
+	left: 47px;
+	padding: 9px 8px 6px 6px;
+	background-color: rgb(243,243,243);
+	color: rgba(7,70,132,0.7);
+	font-size: 0.8em;
+	display: none;
+}
+
+.contenedor-icono-users:hover + .cantidad-viajeros, .cantidad-viajeros:hover {
+	display: block;
+}
+
+/* Media queries */
+
+@media (max-width: 320px) {
+
+	.resultados .card-iconos p {
+		font-size: 0.65em;
+	}
+
+	.resultados .card .fechas p{
+		font-size: 0.8em;
+	}
+
+}
+
+@media (max-width: 768px) {
+	
+	.cantidad-viajeros {
+		display: block;
+	}
+
+}

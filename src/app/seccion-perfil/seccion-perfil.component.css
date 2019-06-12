@@ -1,0 +1,76 @@
+.seccion-perfil {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.seccion-perfil span {
+	padding: 4px 10px 3px 14px;
+	background-color: #f3f3f3;
+	color: rgba(7,70,132,0.7);
+	font-weight: bold;
+	border-radius: 10px;
+	margin-right: 20px; 
+}
+
+/* ----- LISTA DATOS ----- */
+
+.seccion-perfil  ul.datos li {
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
+
+
+/* ----- IMAGEN PERFIL ----- */
+
+.seccion-perfil .imagen-perfil {
+	padding: 0 50px 50px;
+	max-height: 400px;
+	overflow: hidden;
+
+}
+
+.seccion-perfil .imagen-perfil img {
+	width: 100%;
+	min-width: 250px;
+}
+
+
+/* ----- LISTA OTROS DATOS ----- */
+
+.seccion-perfil ul.otros-datos li {
+	display: inline-block;
+	width: 50%;
+	padding: 24px 10px 24px 20px;
+	border-bottom: 1.15px solid #e3e3e3;
+}
+
+
+/* ----- LISTA INTERESES ----- */
+
+
+
+.seccion-perfil ul.intereses li {
+	display: inline-block;
+}
+
+.seccion-perfil ul.intereses li:nth-child(n+2) {
+	border: 1.2px solid rgba(7,70,132,0.7);
+	border-radius: 20px;
+	padding: 3px 15px;
+	margin: 0 10px 10px 0;
+}
+
+
+/* ----- MEDIA QUERIES ----- */
+
+@media (max-width: 992px) {
+	ul.otros-datos li {
+		width: 100%;
+	}
+
+	.seccion-perfil .imagen-perfil {
+		margin: 0 auto;
+		max-width: 450px;
+		padding: 0;
+	}
+}

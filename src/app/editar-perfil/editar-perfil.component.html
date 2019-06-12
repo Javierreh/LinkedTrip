@@ -1,0 +1,113 @@
+<!-- <form> -->
+
+	<div class="row perfil text-muted">
+
+		<div class="seccion-perfil col-lg-6">
+
+			<ul class="list-group list-group-flush datos">
+				
+				<li class="list-group-item form-group">
+					<span>Usuario:</span>
+					<input type="text" class="form-control mt-2" disabled [value]="viajero?.usuario">
+				</li>
+				
+				<li class="list-group-item form-group">
+					<span>Email:</span>
+					<input type="email" class="form-control mt-2" [value]="viajero?.email">
+				</li>
+				
+				<li class="list-group-item form-group">
+					<span>Contraseña:</span>
+					<input type="password" class="form-control mt-2" [value]="viajero?.password">
+				</li>
+				<li class="list-group-item form-group">
+					<span>Nombre:</span>
+					<input type="text" class="form-control mt-2" [value]="viajero?.nombre">
+				</li>
+				<li class="list-group-item border-bottom form-group">
+					<span>Apellidos:</span>
+					<input type="text" class="form-control mt-2" [value]="viajero?.apellidos">
+				</li>
+			</ul>
+			
+		</div>
+
+		<div class="col-lg-6 d-flex align-items-center d-flex justify-content-center">
+			<div class="seccion-perfil d-flex flex-column align-items-center">
+				<div class="imagen-perfil ">
+					<img [src]="viajero?.foto_perfil || './../../assets/images/defaultphoto.jpeg'" alt="Foto de perfil">
+				</div>
+				<div class="mt-3">
+					<input type="file" accept="image/png, image/jpeg">
+				</div>
+			</div>
+		</div>	
+
+		<div class="seccion-perfil col-12 px-3 pt-0">
+			<ul class="otros-datos mb-0">
+				<li class="w-100 form-group">
+					<span>Sobre mi:</span>
+					<textarea name="" id="" class="form-control mt-2" rows="3" [value]="viajero?.sobre_mi"></textarea>
+				</li>
+
+				<li class="form-group">
+					<span>Ciudad:</span>
+					<input type="text" class="form-control mt-2" [value]="viajero?.ciudad">
+				</li>
+
+				<li class="form-group">
+					<span>Sexo:</span>
+					<select class="form-control mt-2" [value]="viajero?.sexo">
+						<option hidden disabled selected value> Selecciona tu sexo</option>
+						<option value="M">Hombre</option>
+						<option value="F">Mujer</option>
+					</select>
+				</li>
+
+				<li class="form-group">
+					<span>Fecha de nacimiento:</span>
+					<input type="date" class="form-control mt-2" [value]="viajero?.fecha_nacimiento | date: 'yyyy-MM-dd'">
+				</li>
+
+				<li class="form-group">
+					<span>Educación:</span>
+					<select class="form-control mt-2" [value]="viajero?.educacion">
+						<option hidden disabled selected value> Selecciona tu educación</option>
+						<option value="Primaria">Primaria</option>
+						<option value="Secundaria">Secundaria</option>
+						<option value="Formación Profesional">Formación Profesional</option>
+						<option value="Universidad">Universidad</option>
+					</select>
+				</li>
+
+				<li class="form-group w-100">
+					<span>Ocupación:</span>
+					<input type="text" class="form-control mt-2" [value]="viajero?.ocupacion">
+				</li>
+
+				<li class="select-idioma w-100">
+					<span class="idiomas">Idiomas:</span>
+					
+					<select id="select" multiple="multiple" class="mt-2">
+						<option *ngFor="let idioma of viajero?.todos_idiomas" [value]="idioma" [selected]="selected(idioma)">{{ idioma }}</option>
+					</select>
+				</li>
+				
+			</ul>
+					
+		</div>
+
+		<div class="seccion-perfil col-12 px-3 border-bottom pt-0">
+			<ul class="intereses px-3">
+				<li><span>Intereses:</span> </li>
+				<input type="text" class="form-control mt-2" [value]="viajero?.intereses">
+			</ul>
+		</div>
+
+		<div class="d-block text-center mx-auto my-4">
+			<a class="btn btn-lg boton mx-3" [routerLink]="['']">Guardar Cambios</a>
+		</div>
+
+	</div>
+
+<!-- </form> -->

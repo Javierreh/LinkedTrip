@@ -12,4 +12,8 @@ export class ViajesService {
 		return this.http.get('http://localhost:3000/api/viajes');
 	}
 
+	getViajeById(idViaje) {
+		return this.http.get('http://localhost:3000/api/viajes/' + idViaje)
+	}
+
 }

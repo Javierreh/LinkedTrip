@@ -3,152 +3,13 @@ main section.perfil-usuario {
 	padding-bottom: 40px;
 }
 
-.perfil-usuario h3 {
-	font-size: 1.05em;
-}
-
-
-/* Cabecera Usuario */
-
-.cabecera-usuario h2 {
-	font-size: 1.3em;
-}
-
-.sobre-mi {
-	padding: 4px 10px 3px;
+.cabecera {
 	background-color: #f3f3f3;
-	color: rgba(7,70,132,0.7);
-	display: inline-block;
-	font-weight: bold;
-	border-radius: 10px;
-}
-
-.sobre-mi-text {
-	padding: 10px 10px 10px 20px;
-}
-
-.cabecera-usuario p.registrado {
-	position: absolute;
-	bottom: 10px;
-	right: 20px;
-	margin-left: 20px;
-}
-
-
-/* Contenido Usuario */
-
-.seccion-usuario h3 {
-	font-weight: bold;
-	background-color: #f3f3f3;
-	color: rgba(7,70,132,0.7);
-}
-
-/* Intereses */
-
-.contenido-usuario {
-	padding-left: 15px;
-	padding-right: 15px;
-}
-
-.contenido-usuario .intereses {
-	padding: 22px 15px 10px 45px;
-}
-
-.contenido-usuario .intereses div {
-	display: inline-block;
-	border: 1.2px solid rgba(7,70,132,0.7);
-	border-radius: 20px;
-	padding: 3px 15px;
-	margin: 0 10px 10px 0;
-}
-
-.contenido-usuario .intereses div:hover {
-	cursor: pointer;
-	background-color: rgba(7,70,132,1);
-	color: #f2efb6;
-}
-
-
-/* Otros datos */
-
-.otros-datos {
-	padding: 12px 0 0 35px;
-}
-
-.otros-datos p {
-	margin-bottom: 10px;
-	padding-right: 15px;
-	width: 50%;
-	display: inline-block;
-}
-
-.otros-datos p i {
-	font-size: 1.4em;
-	color: rgba(7,70,132,0.7);
-}
-
-.otros-datos p span {
-	text-align: center;
-	display:inline-block;
-	width: 40px;
-}
-
-
-/* Comentarios y puntuación */
-
-.comentarios {
-	padding: 30px 30px 0 35px;
-	width: 100%;
-}
-
-.comentarios h4 {
-	font-size: 1.15em;
-}
-
-.comentarios h4 span.puntos {
-	background-color: rgba(7,70,132,0.7);
-	color: #f3f3f3;
-	border-radius: 20px;
-	padding: 2px 12px;
-	margin-left: 18px;
-}
-
-.comentarios hr {
-	margin-bottom: 35px
-}
-
-.comentario-footer {
-	font-size: 0.8em;
-	margin-bottom: 0;
-	text-align: right;
-}
-
-
-/* Viajares realizados */
-
-.viajes {
-	padding: 15px 30px 5px 35px;
-}
-
-.viajes p i {
-	position: relative;
-	left: 0;
-	top: 4px;
-	color: rgba(7,70,132,0.7);
-	padding-right: 10px;
-	font-size: 1.5em;
-}
-
-
-/* Nombre de Usuario y Puntuación */
-
-.username {
-	background-color: #f3f3f3;
-	padding: 8px 0 5px;
+	padding: 12px 0 12px;
 	border-radius: 12px 12px 0 0;
 }
 
-.username i {
+.cabecera i {
 	position: relative;
 	top: 3px;
 	font-size: 1.5em;
@@ -157,27 +18,52 @@ main section.perfil-usuario {
 	color: rgba(7,70,132,0.7);
 }
 
+.cabecera div a {
+	display: block;
+	padding: 7px 15px 10px 0px;
+	border-radius: 20px;
+}
 
-/* Media Queries */
+.cabecera div a:hover {
+	background-color: rgba(7,70,132,0.7);
+	color: white !important;
+	text-decoration: none;
+}
 
-@media (max-width: 576px) {
+.cabecera div a:hover i {
+	color: white;
+}
 
-	.username p {
-		font-size: 0.9em;
-	}
+.activa {
+	background-color: rgba(7,70,132,0.7);
+	color: white !important;
+}
 
-	.username p span {
+.activa i {
+	color: white;
+}
+
+
+@media (max-width: 776px) {
+	.cabecera div a span {
 		display: none;
 	}
 
-	.otros-datos p {
-		width: 100%;
+	.cabecera div a {
+		display: block;
+		padding: 7px 5px 10px 5px;
 	}
 }
 
-@media (max-width: 360px) {
+@media (max-width: 350px) {
 
-	.username p:last-child {
-		display: none;
+	.cabecera div a {
+		padding-top: 4px;
+		padding-bottom: 4px;
+	}
+	.cabecera i {
+		font-size: 1.2em;
+		padding-left: 10px;
+		padding-right: 10px;
 	}
 }

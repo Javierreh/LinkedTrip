@@ -13,6 +13,13 @@ import { BuscarViajesComponent } from './buscar-viajes/buscar-viajes.component';
 import { DetalleViajeComponent } from './detalle-viaje/detalle-viaje.component';
 import { LoginComponent } from './login/login.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
+import { ResultadoViajesComponent } from './resultado-viajes/resultado-viajes.component';
+import { PerfilViajeroComponent } from './perfil-viajero/perfil-viajero.component';
+import { SeccionPerfilComponent } from './seccion-perfil/seccion-perfil.component';
+import { SeccionViajesComponent } from './seccion-viajes/seccion-viajes.component';
+import { SeccionPeticionesComponent } from './seccion-peticiones/seccion-peticiones.component';
+import { SeccionPuntuacionesComponent } from './seccion-puntuaciones/seccion-puntuaciones.component';
+import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +31,14 @@ import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.componen
     BuscarViajesComponent,
     DetalleViajeComponent,
     LoginComponent,
-    PerfilUsuarioComponent
+    PerfilUsuarioComponent,
+    ResultadoViajesComponent,
+    PerfilViajeroComponent,
+    SeccionPerfilComponent,
+    SeccionViajesComponent,
+    SeccionPeticionesComponent,
+    SeccionPuntuacionesComponent,
+    EditarPerfilComponent
   ],
   imports: [
     BrowserModule,

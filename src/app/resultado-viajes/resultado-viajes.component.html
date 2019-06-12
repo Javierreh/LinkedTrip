@@ -1,0 +1,66 @@
+<div class="container-fluid resultados">
+		
+	<div class="container mt-4">
+
+		<div class="row">
+
+			<div class="col-md-6 col-lg-6 col-xl-4 py-3" *ngFor="let viaje of viajes">
+				<div class="card h-100" [routerLink]="['/detalle-viaje', viaje.id]">
+					<div class="card-cabecera">
+						<img [src]="viaje.foto" class="card-img-top" alt="Imagen del Destino" *ngIf="viaje.foto !== null; else elseFoto">
+						<ng-template #elseFoto>
+							<img src="./../../assets/images/placeholder-image.png" class="card-img-top" alt="Imagen del Destino">
+						</ng-template>
+
+						<div class="userprofile" [ngStyle]="{'background-image' : 'url(' + viaje.foto_perfil + ')'}" *ngIf="viaje.foto_perfil !== null; else elseFotoPerfil"></div>
+						<ng-template #elseFotoPerfil>
+							<div class="userprofile" [ngStyle]="{'background-image' : 'url(../../assets/images/defaultphoto.jpeg)'}"></div>
+						</ng-template>
+
+						<div class="contenedor-icono-users">
+							<i class="fas fa-users"></i>
+						</div>
+						
+						<div class="cantidad-viajeros">{{ viaje.total_viajeros + 1 }} / {{ viaje.viajeros_max }}</div>
+					</div>
+
+					<div class="card-iconos d-flex flex-wrap justify-content-center">
+						<div>
+							<i class="fas fa-map-marked-alt"></i>
+							<p *ngIf="viaje.total_destinos === 1; else elseDestinos">{{ viaje.total_destinos }} Destino</p>
+							<ng-template #elseDestinos>
+								<p class="card-text">{{ viaje.total_destinos }} Destinos</p>
+							</ng-template>
+						</div>
+						<div>
+							<i class="fas fa-hiking"></i>
+							<p *ngIf="viaje.total_actividades === 1; else elseActividades">{{ viaje.total_actividades }} Actividad</p>
+							<ng-template #elseActividades>
+								<p class="card-text">{{ viaje.total_actividades }} Actividades</p>
+							</ng-template>
+						</div>
+						<div>
+							<i class="fas fa-bed"></i>
+							<p>{{ viaje.alojamiento }}</p>
+						</div>
+					</div>
+					
+					<div class="card-body">
+						<h5 class="card-title">{{ viaje.titulo }}</h5>
+						<p class="card-text" *ngIf="viaje.descripcion.length > 100; else elseDescripcion">{{ viaje.descripcion | slice: 0:100 }}...</p>
+						<ng-template #elseDescripcion>
+							<p class="card-text">{{ viaje.descripcion }}</p>
+						</ng-template>
+					</div>
+					
+					<div class="fechas text-center mb-3 mt-2">
+						<p class="mb-0">{{ viaje.fecha_inicio | date: 'dd-MM-y' }} <i class="far fa-calendar-alt"></i> {{ viaje.fecha_fin | date: 'd-MM-y'}}</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

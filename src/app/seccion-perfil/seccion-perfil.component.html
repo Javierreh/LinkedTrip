@@ -1,0 +1,51 @@
+<div class="row perfil text-muted">
+
+	<div class="seccion-perfil col-lg-6">
+
+		<ul class="list-group list-group-flush datos">
+			<li class="list-group-item"><span>Usuario:</span> {{ viajero?.usuario }}</li>
+			<li class="list-group-item"><span>Email:</span> {{ viajero?.email }}</li>
+			<li class="list-group-item"><span>Contraseña:</span> ******</li>
+			<li class="list-group-item"><span>Nombre:</span> {{ viajero?.nombre }}</li>
+			<li class="list-group-item border-bottom"><span>Apellidos:</span> {{ viajero?.apellidos }}</li>
+		</ul>
+		
+	</div>
+
+	<div class="seccion-perfil col-lg-6 d-flex align-items-center">
+		<div class="imagen-perfil ">
+			<img [src]="viajero?.foto_perfil || './../../assets/images/defaultphoto.jpeg'" alt="Foto de perfil">
+		</div>
+	</div>
+
+	<div class="seccion-perfil col-12 px-3 pt-0">
+		<ul class="otros-datos mb-0">
+			<li class="w-100"><span>Sobre mi:</span> {{ viajero?.sobre_mi }}</li>
+			<li><span>Ciudad:</span> {{ viajero?.ciudad }}</li>
+
+			<li *ngIf="viajero?.sexo == 'F'; else elseSexo"><span>Sexo:</span> Mujer</li>
+			<ng-template #elseSexo>
+				<li><span>Sexo:</span> Hombre</li>
+			</ng-template>
+
+			<li><span>Edad:</span> {{ edad }} años</li>
+			<li><span>Educación:</span> {{ viajero?.educacion }}</li>
+			<li><span>Ocupación:</span> {{ viajero?.ocupacion }}</li>
+			<li><span>Idiomas:</span> {{ viajero?.idiomas }}</li>
+		</ul>
+
+	</div>
+
+	<div class="seccion-perfil col-12 px-3 border-bottom">
+		<ul class="intereses px-3">
+			<li><span>Intereses:</span> </li>
+			<li *ngFor="let interes of viajero?.intereses">{{ interes }}</li>
+		</ul>
+	</div>
+
+	<div class="d-block text-center mx-auto my-4">
+		<a *ngIf="viajero" class="btn btn-lg boton mx-3" [routerLink]="['/perfil-viajero', viajero?.id]">Ver Perfil</a>
+		<a *ngIf="viajero" class="btn btn-lg boton mx-3" [routerLink]="['/usuario', viajero?.id, 'editar-perfil']">Editar Perfil</a>
+	</div>
+
+</div>

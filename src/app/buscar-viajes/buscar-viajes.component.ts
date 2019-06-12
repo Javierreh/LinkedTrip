@@ -28,7 +28,6 @@ export class BuscarViajesComponent implements OnInit {
 	ngOnInit() {
 		this.viajesService.getAll().subscribe((res) => {
 			this.viajes = res;
-			console.log(res);
 		});
 	}
 

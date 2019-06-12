@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ViajerosService } from './../viajeros.service';
 
 @Component({
   selector: 'app-registro',
@@ -10,7 +11,7 @@ export class RegistroComponent implements OnInit {
 
 	formulario: FormGroup;
 
-	constructor() {
+	constructor(private viajerosService: ViajerosService) {
 		this.formulario = new FormGroup({
 			nombre: new FormControl('', [
 				Validators.required,
@@ -45,7 +46,10 @@ export class RegistroComponent implements OnInit {
 	}
 	
 	onSubmit() {
-		console.log(this.formulario.value);
+		this.viajerosService.insertViajero(this.formulario.value).subscribe((res) => {
+			
+		});
+
 		this.formulario.reset();
 	}	
 

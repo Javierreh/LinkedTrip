@@ -6,19 +6,18 @@ main section.nuevo-viaje {
 .cabecera {
 	color: #f2efb6;
 	background-color: rgba(7,70,132,1);
-	padding: 18px 30px 6px;
+	padding: 20px 30px 8px;
 	border-radius: 12px 12px 0 0;
 	
 }
 
 .cabecera h2 {
 	font-weight: bold;
-	font-size: 1.8em;
+	font-size: 1.7em;
 }
 
 
 .nuevo-viaje .campos {
-	/*padding: 23px 30px 32px 30px;*/
 	border-bottom: 1.15px solid #e3e3e3;
 }
 
@@ -26,6 +25,22 @@ main section.nuevo-viaje {
 .nuevo-viaje ul.campos li {
 	display: inline-block;
 	width: 50%;
-	padding: 0 10px 26px 20px;
+	padding: 0 10px 20px 20px;
 	border-bottom: 1.15px solid #e3e3e3;
+}
+
+.container-imagen {
+	max-width: 250px;
+}
+
+img {
+	width: 100%;
+	max-width: 250px;
+}
+
+
+@media (max-width: 992px) {
+	.nuevo-viaje ul.campos li {
+		width: 100%;
+	}
 }

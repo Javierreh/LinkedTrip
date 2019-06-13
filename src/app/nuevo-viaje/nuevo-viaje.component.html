@@ -53,65 +53,115 @@
 			<div class="row">
 			
 				<div class="col-12 px-3 pt-0">
-					<ul class="campos mb-0">
-						<li class="w-100 form-group">
-							<div class="p-3">
-								<span>Descripcion</span>
-								<textarea class="form-control mt-2" rows="3" formControlName="sobre_mi"></textarea>
-							</div>
-						</li>
+					<ul class="campos mb-0 border">
+
 						<li class="form-group">
 							<div class="p-3">
-								<span>Ciudad:</span>
-								<input type="text" class="form-control mt-2" formControlName="ciudad">
+								<span>Titulo:</span>
+								<input type="text" class="form-control mt-2" formControlName="titulo">
 							</div>
 						</li>
 
 						<li class="form-group">
 							<div class="p-3">
-								<span>Sexo:</span>
-								<select class="form-control mt-2" formControlName="sexo">
-									<option hidden disabled selected value> Selecciona tu sexo</option>
-									<option value="M">Hombre</option>
-									<option value="F">Mujer</option>
-								</select>
-							</div>
-						</li>
-
-						<li class="form-group">
-							<div class="p-3">
-								<span>Fecha de nacimiento:</span>
-								<input type="date" class="form-control mt-2" formControlName="fecha_nacimiento">
-							</div>
-						</li>
-
-						<li class="form-group">
-							<div class="p-3">
-								<span>Educación:</span>
-								<select class="form-control mt-2" formControlName="educacion">
-									<option value="Primaria">Primaria</option>
-									<option value="Secundaria">Secundaria</option>
-									<option value="Formación Profesional">Formación Profesional</option>
-									<option value="Universidad">Universidad</option>
-								</select>
-							</div>
-						</li>
-
-						<li class="form-group">
-							<div class="p-3">
-								<span>Ocupación:</span>
-								<input type="text" class="form-control mt-2" formControlName="ocupacion">
-							</div>
-						</li>
-
-						<li class="select-idioma">
-							<div class="p-3">
-								<span class="idiomas">Idiomas:</span>
-								<input type="text" class="form-control mt-2" formControlName="idiomas">
+								<span>Viajeros máximos:</span>
+								<input type="number" class="form-control mt-2" formControlName="viajeros_max">
 							</div>
 						</li>
 						
+						<li class="w-100 form-group">
+							<div class="p-3">
+								<span>Descripcion</span>
+								<textarea class="form-control mt-2" rows="3" formControlName="descripcion"></textarea>
+							</div>
+						</li>
+
+						<li class="form-group">
+							<div class="p-3">
+								<span>Fecha inicio:</span>
+								<input type="date" class="form-control mt-2" formControlName="fecha_inicio">
+							</div>
+						</li>
+
+						<li class="form-group">
+							<div class="p-3">
+								<span>Fecha fin:</span>
+								<input type="date" class="form-control mt-2" formControlName="fecha_fin">
+							</div>
+						</li>
+
+						<li class="form-group">
+							<div class="p-3">
+								<span>Destinos:</span>
+								<input type="text" class="form-control mt-2" formControlName="destino">
+							</div>
+						</li>
+
+						<li class="form-group">
+							<div class="p-3">
+								<span>Actividades:</span>
+								<input type="text" class="form-control mt-2" formControlName="actividades">
+							</div>
+						</li>
+
+						<li class="form-group">
+							<div class="p-3">
+								<span>Alojamiento:</span>
+								<select class="form-control mt-2" formControlName="alojamiento">
+									<option hidden disabled selected value> Selecciona el alojamiento...</option>
+									<option value="Camping">Camping</option>
+									<option value="Casa Rural">Casa Rural</option>
+									<option value="Apartamento">Apartamento</option>
+									<option value="Motel">Motel</option>
+									<option value="Hostal">Hostal</option>
+									<option value="Hotel">Hotel</option>
+									<option value="Resort">Resort</option>
+									<option value="Otros">Otros</option>
+								</select>
+							</div>
+						</li>
+
+						<li class="form-group">
+							<div class="p-3">
+								<span>Nivel económico:</span>
+								<select class="form-control mt-2" formControlName="nivel_economico">
+									<option hidden disabled selected value> Selecciona el nivel económico...</option>
+									<option value="Mochilero">Mochilero</option>
+									<option value="Low Cost">Low Cost</option>
+									<option value="Medio">Medio</option>
+									<option value="Alto">Alto</option>
+									<option value="Lujo">Lujo</option>
+								</select>
+							</div>
+						</li>
+
+						<li class="w-100 form-group">
+							<div class="p-3">
+								<span>Etiquetas:</span>
+								<input type="text" class="form-control mt-2" formControlName="etiquetas">
+							</div>
+						</li>
+
+						<li class="w-100 form-group">
+							
+							<div class="row d-flex p-3">
+								<div class="col-sm-12 col-md-6  align-self-center">
+									<span>Sube una imagen:</span>
+									<input class="form-control mt-2" accept="image/png, image/jpeg" type="file">
+								</div>
+
+								<div class="col-sm-12 col-md-6 mx-auto p-3">
+									<div class="container-imagen mx-auto">
+										<img src='./../../assets/images/placeholder-image.png' alt="Foto del viaje">
+									</div>
+								</div>
+							</div>
+
+						</li>
+
 					</ul>
+					
+				
 						
 				</div>
 

@@ -13,6 +13,7 @@ import { EditarPerfilComponent} from './editar-perfil/editar-perfil.component';
 import { SeccionViajesComponent} from './seccion-viajes/seccion-viajes.component';
 import { SeccionPeticionesComponent} from './seccion-peticiones/seccion-peticiones.component';
 import { SeccionPuntuacionesComponent} from './seccion-puntuaciones/seccion-puntuaciones.component';
+import { NuevoViajeComponent } from './nuevo-viaje/nuevo-viaje.component';
 
 const routes: Routes = [
 	{ path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -34,6 +35,7 @@ const routes: Routes = [
 			{ path: 'puntuaciones', component: SeccionPuntuacionesComponent }
 		] 
 	},
+	{ path: 'nuevo-viaje', component: NuevoViajeComponent },
 	{ path: '**', redirectTo: 'home' }
 ];
 

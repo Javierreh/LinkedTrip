@@ -20,32 +20,63 @@
 
 	<div class="seccion-perfil col-12 px-3 pt-0">
 		<ul class="otros-datos mb-0">
-			<li class="w-100"><span>Sobre mi:</span> {{ viajero?.sobre_mi }}</li>
-			<li><span>Ciudad:</span> {{ viajero?.ciudad }}</li>
 
-			<li *ngIf="viajero?.sexo == 'F'; else elseSexo"><span>Sexo:</span> Mujer</li>
-			<ng-template #elseSexo>
-				<li><span>Sexo:</span> Hombre</li>
+			<li class="w-100" *ngIf="viajero?.sobre_mi; else elseSobreMi"><span>Sobre mi:</span> {{ viajero?.sobre_mi }}</li>
+			<ng-template #elseSobreMi>
+				<li class="w-100"><span>Sobre mi:</span> N/A</li>
 			</ng-template>
 
-			<li><span>Edad:</span> {{ edad }} años</li>
-			<li><span>Educación:</span> {{ viajero?.educacion }}</li>
-			<li><span>Ocupación:</span> {{ viajero?.ocupacion }}</li>
-			<li><span>Idiomas:</span> {{ viajero?.idiomas }}</li>
+
+			<li *ngIf="viajero?.ciudad; else elseCiudad"><span>Ciudad:</span> {{ viajero?.ciudad }}</li>
+			<ng-template #elseCiudad>
+				<li><span>Cuidad:</span> N/A</li>
+			</ng-template>
+
+			<li *ngIf="viajero?.sexo == 'F';"><span>Sexo:</span> Mujer</li>
+			<li *ngIf="viajero?.sexo == 'M';"><span>Sexo:</span> Hombre</li>
+			<li *ngIf="!viajero?.sexo;"><span>Sexo:</span> N/A</li>
+
+			<li *ngIf="viajero?.fecha_nacimiento; else elseEdad"><span>Edad:</span> {{ edad }} años</li>
+			<ng-template #elseEdad>
+				<li><span>Edad:</span> N/A</li>
+			</ng-template>
+			
+			<li *ngIf="viajero?.educacion; else elseEducacion"><span>Ciudad:</span> {{ viajero?.educacion }}</li>
+			<ng-template #elseEducacion>
+				<li><span>Educacion:</span> N/A</li>
+			</ng-template>
+
+			<li *ngIf="viajero?.ocupacion; else elseOcupacion"><span>Ciudad:</span> {{ viajero?.ocupacion }}</li>
+			<ng-template #elseOcupacion>
+				<li><span>Ocupacion:</span> N/A</li>
+			</ng-template>
+
+			<li *ngIf="viajero?.idiomas; else elseIdioma"><span>Idiomas:</span> {{ viajero?.idiomas }}</li>
+			<ng-template #elseIdioma>
+				<li><span>Idiomas:</span> N/A</li>
+			</ng-template>
+
 		</ul>
 
 	</div>
 
 	<div class="seccion-perfil col-12 px-3 border-bottom">
-		<ul class="intereses px-3">
+		<ul class="intereses px-3" *ngIf="viajero?.intereses; else elseIntereses">
 			<li><span>Intereses:</span> </li>
 			<li *ngFor="let interes of viajero?.intereses">{{ interes }}</li>
 		</ul>
+		
+		<ng-template #elseIntereses>
+			<ul class="intereses px-3">
+				<li class="d-inline"><span>Intereses:</span> </li>
+				<p class="d-inline">N/A</p>
+			</ul>
+		</ng-template>
 	</div>
 
 	<div class="d-block text-center mx-auto my-4">
 		<a *ngIf="viajero" class="btn btn-lg boton mx-3" [routerLink]="['/perfil-viajero', viajero?.id]">Ver Perfil</a>
-		<a *ngIf="viajero" class="btn btn-lg boton mx-3" [routerLink]="['/usuario', viajero?.id, 'editar-perfil']">Editar Perfil</a>
+		<a class="btn btn-lg boton mx-3 color-enlace" (click)="handleClick()">Editar Perfil</a>
 	</div>
 
 </div>

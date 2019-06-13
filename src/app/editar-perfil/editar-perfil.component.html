@@ -1,5 +1,5 @@
-<!-- <form> -->
-
+<form novalidate [formGroup]="formulario" (ngSubmit)="onSubmit()" *ngIf="formulario">
+	<input type="text" hidden formControlName="id">
 	<div class="row perfil text-muted">
 
 		<div class="seccion-perfil col-lg-6">
@@ -8,25 +8,25 @@
 				
 				<li class="list-group-item form-group">
 					<span>Usuario:</span>
-					<input type="text" class="form-control mt-2" disabled [value]="viajero?.usuario">
+					<input type="text" class="form-control mt-2" formControlName="usuario">
 				</li>
 				
 				<li class="list-group-item form-group">
 					<span>Email:</span>
-					<input type="email" class="form-control mt-2" [value]="viajero?.email">
+					<input type="email" class="form-control mt-2" formControlName="email">
 				</li>
 				
 				<li class="list-group-item form-group">
 					<span>Contraseña:</span>
-					<input type="password" class="form-control mt-2" [value]="viajero?.password">
+					<input type="password" class="form-control mt-2" formControlName="password">
 				</li>
 				<li class="list-group-item form-group">
 					<span>Nombre:</span>
-					<input type="text" class="form-control mt-2" [value]="viajero?.nombre">
+					<input type="text" class="form-control mt-2" formControlName="nombre">
 				</li>
 				<li class="list-group-item border-bottom form-group">
 					<span>Apellidos:</span>
-					<input type="text" class="form-control mt-2" [value]="viajero?.apellidos">
+					<input type="text" class="form-control mt-2" formControlName="apellidos">
 				</li>
 			</ul>
 			
@@ -34,11 +34,18 @@
 
 		<div class="col-lg-6 d-flex align-items-center d-flex justify-content-center">
 			<div class="seccion-perfil d-flex flex-column align-items-center">
-				<div class="imagen-perfil ">
-					<img [src]="viajero?.foto_perfil || './../../assets/images/defaultphoto.jpeg'" alt="Foto de perfil">
+				
+				<div class="imagen-perfil">
+					<img *ngIf="imageUrl; else elseImagen" [src]="imageUrl || './../../assets/images/defaultphoto.jpeg'" alt="Foto de perfil">
+					<ng-template #elseImagen>
+						<img [src]="viajero?.foto_perfil || './../../assets/images/defaultphoto.jpeg'" alt="Foto de perfil">
+					</ng-template>
+					
+					<p *ngIf="uploadPercent" class="mb-0 text-center porcentaje">{{ uploadPercent | async | number: '1.0-0' }} %</p>
 				</div>
+
 				<div class="mt-3">
-					<input type="file" accept="image/png, image/jpeg">
+					<input accept="image/png, image/jpeg" type="file" (change)="onChangeImage($event)">
 				</div>
 			</div>
 		</div>	
@@ -47,17 +54,17 @@
 			<ul class="otros-datos mb-0">
 				<li class="w-100 form-group">
 					<span>Sobre mi:</span>
-					<textarea name="" id="" class="form-control mt-2" rows="3" [value]="viajero?.sobre_mi"></textarea>
+					<textarea class="form-control mt-2" rows="3" formControlName="sobre_mi"></textarea>
 				</li>
 
 				<li class="form-group">
 					<span>Ciudad:</span>
-					<input type="text" class="form-control mt-2" [value]="viajero?.ciudad">
+					<input type="text" class="form-control mt-2" formControlName="ciudad">
 				</li>
 
 				<li class="form-group">
 					<span>Sexo:</span>
-					<select class="form-control mt-2" [value]="viajero?.sexo">
+					<select class="form-control mt-2" formControlName="sexo">
 						<option hidden disabled selected value> Selecciona tu sexo</option>
 						<option value="M">Hombre</option>
 						<option value="F">Mujer</option>
@@ -66,13 +73,12 @@
 
 				<li class="form-group">
 					<span>Fecha de nacimiento:</span>
-					<input type="date" class="form-control mt-2" [value]="viajero?.fecha_nacimiento | date: 'yyyy-MM-dd'">
+					<input type="date" class="form-control mt-2" formControlName="fecha_nacimiento">
 				</li>
 
 				<li class="form-group">
 					<span>Educación:</span>
-					<select class="form-control mt-2" [value]="viajero?.educacion">
-						<option hidden disabled selected value> Selecciona tu educación</option>
+					<select class="form-control mt-2" formControlName="educacion">
 						<option value="Primaria">Primaria</option>
 						<option value="Secundaria">Secundaria</option>
 						<option value="Formación Profesional">Formación Profesional</option>
@@ -82,15 +88,12 @@
 
 				<li class="form-group w-100">
 					<span>Ocupación:</span>
-					<input type="text" class="form-control mt-2" [value]="viajero?.ocupacion">
+					<input type="text" class="form-control mt-2" formControlName="ocupacion">
 				</li>
 
 				<li class="select-idioma w-100">
 					<span class="idiomas">Idiomas:</span>
-					
-					<select id="select" multiple="multiple" class="mt-2">
-						<option *ngFor="let idioma of viajero?.todos_idiomas" [value]="idioma" [selected]="selected(idioma)">{{ idioma }}</option>
-					</select>
+					<input type="text" class="form-control mt-2" formControlName="idiomas">
 				</li>
 				
 			</ul>
@@ -100,14 +103,14 @@
 		<div class="seccion-perfil col-12 px-3 border-bottom pt-0">
 			<ul class="intereses px-3">
 				<li><span>Intereses:</span> </li>
-				<input type="text" class="form-control mt-2" [value]="viajero?.intereses">
+				<input type="text" class="form-control mt-2" formControlName="intereses">
 			</ul>
 		</div>
 
 		<div class="d-block text-center mx-auto my-4">
-			<a class="btn btn-lg boton mx-3" [routerLink]="['']">Guardar Cambios</a>
+ 			<input class="btn btn-lg boton" type="submit" value="Registrar">
 		</div>
 
 	</div>
 
-<!-- </form> -->
+</form>

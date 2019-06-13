@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+	production: false,
+	firebase: {
+		apiKey: "AIzaSyAEacZHIHqMjOhbMF1VPuNkES-PhzBI8h8",
+		authDomain: "linkedtrip.firebaseapp.com",
+		databaseURL: "https://linkedtrip.firebaseio.com",
+		projectId: "linkedtrip",
+		storageBucket: "linkedtrip.appspot.com",
+		messagingSenderId: "63685411165",
+		appId: "1:63685411165:web:30179c30cb1535e7"
+	}
 };
 
 /*

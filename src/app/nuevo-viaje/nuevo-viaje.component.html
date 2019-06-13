@@ -1,0 +1,124 @@
+<main>
+	
+	<section class="container-fluid nuevo-viaje">
+		
+		<div class="container">
+				
+			<div class="cabecera">
+				<h2>ORGANIZAR UN NUEVO VIAJE</h2>
+			</div>
+
+			<!-- <div class="p-3 border">
+				<div class="form-group row campos">
+    				<label class="col-sm-3 col-form-label">Título:</label>
+	    			<div class="col-sm-9">
+	      				<input type="text" class="form-control">
+	    			</div>
+  				</div>
+
+  				<div class="form-group row campos">
+   					<label class="col-sm-3 col-form-label">Descripción:</label>
+    				<div class="col-sm-9">
+    					<textarea class="form-control" rows="4"></textarea>
+    				</div>
+  				</div>
+
+  				<div class="form-group row campos">
+  					<label class="col-sm-3 col-form-label">Imagen:</label>
+					<input class="col-sm-9" accept="image/png, image/jpeg" type="file">
+				</div>
+
+				<div class="form-group row campos">
+					<label class="col-sm-3 col-form-label">Nº de viajeros:</label>
+					<div class="col-sm-9">
+						<input type="number" class="form-control">
+					</div>
+				</div>
+
+				<div class="form-group row campos">
+					<label class="col-sm-3 col-form-label">Fecha Inicio:</label>
+					<div class="col-sm-9">
+						<input type="date" class="form-control">
+					</div>
+				</div>
+
+				<div class="form-group row campos">
+					<label class="col-sm-3 col-form-label">Fecha Fin:</label>
+					<div class="col-sm-9">
+						<input type="date" class="form-control">
+					</div>
+				</div>
+
+			</div> -->
+			<div class="row">
+			
+				<div class="col-12 px-3 pt-0">
+					<ul class="campos mb-0">
+						<li class="w-100 form-group">
+							<div class="p-3">
+								<span>Descripcion</span>
+								<textarea class="form-control mt-2" rows="3" formControlName="sobre_mi"></textarea>
+							</div>
+						</li>
+						<li class="form-group">
+							<div class="p-3">
+								<span>Ciudad:</span>
+								<input type="text" class="form-control mt-2" formControlName="ciudad">
+							</div>
+						</li>
+
+						<li class="form-group">
+							<div class="p-3">
+								<span>Sexo:</span>
+								<select class="form-control mt-2" formControlName="sexo">
+									<option hidden disabled selected value> Selecciona tu sexo</option>
+									<option value="M">Hombre</option>
+									<option value="F">Mujer</option>
+								</select>
+							</div>
+						</li>
+
+						<li class="form-group">
+							<div class="p-3">
+								<span>Fecha de nacimiento:</span>
+								<input type="date" class="form-control mt-2" formControlName="fecha_nacimiento">
+							</div>
+						</li>
+
+						<li class="form-group">
+							<div class="p-3">
+								<span>Educación:</span>
+								<select class="form-control mt-2" formControlName="educacion">
+									<option value="Primaria">Primaria</option>
+									<option value="Secundaria">Secundaria</option>
+									<option value="Formación Profesional">Formación Profesional</option>
+									<option value="Universidad">Universidad</option>
+								</select>
+							</div>
+						</li>
+
+						<li class="form-group">
+							<div class="p-3">
+								<span>Ocupación:</span>
+								<input type="text" class="form-control mt-2" formControlName="ocupacion">
+							</div>
+						</li>
+
+						<li class="select-idioma">
+							<div class="p-3">
+								<span class="idiomas">Idiomas:</span>
+								<input type="text" class="form-control mt-2" formControlName="idiomas">
+							</div>
+						</li>
+						
+					</ul>
+						
+				</div>
+
+			</div>
+			
+		</div>
+
+	</section>
+
+</main>

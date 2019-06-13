@@ -17,4 +17,8 @@ export class ViajerosService {
 		return this.http.post('http://localhost:3000/api/viajeros/new', pFormulario);
 	}
 
+	editUsuario(pFormulario) {
+		return this.http.put('http://localhost:3000/api/viajeros/edit', pFormulario);
+	}
+
 }

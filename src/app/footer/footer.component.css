@@ -1,6 +1,7 @@
 /* FOOTER */
 
 footer {
+	flex-shrink: 0;
 	background-color: #074684;
 	text-align: center;
 }

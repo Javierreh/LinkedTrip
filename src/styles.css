@@ -7,8 +7,19 @@
 	font-family: 'Roboto', sans-serif;
 }
 
+html, body {
+	height: 100%;
+}
+
 body {
 	font-size: 1.2em;
+	display: flex;
+	flex-direction: column;
+}
+
+.content {
+  flex: 1 0 auto;
+  min-height: calc(100vh - 156px);
 }
 
 .boton {

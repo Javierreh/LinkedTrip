@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ViajerosService } from './../viajeros.service';
 import * as moment from 'moment';
 
@@ -14,7 +14,7 @@ export class SeccionPerfilComponent implements OnInit {
 	viajero: any;
 	edad: number;
 
-	constructor(private activatedRoute: ActivatedRoute, private viajerosService: ViajerosService) {
+	constructor(private activatedRoute: ActivatedRoute, private viajerosService: ViajerosService, private router: Router) {
 		this.activatedRoute.parent.params.subscribe(params => {
 			this.idViajero = params.id;
 		});
@@ -28,6 +28,10 @@ export class SeccionPerfilComponent implements OnInit {
 			this.viajero = res[0];
 			console.log(this.viajero);
 		});
+	}
+
+	handleClick() {
+		this.router.navigate(['/usuario', this.idViajero, 'editar-perfil'])
 	}
 
 }

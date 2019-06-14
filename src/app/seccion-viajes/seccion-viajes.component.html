@@ -1,3 +1,44 @@
-<p>
-  seccion-viajes works!
-</p>
+<div class="seccion-viajes">
+
+	<div class="mis-viajes">
+		
+		<div class="cabeceras-perfil">
+			<h2>Mis viajes</h2>
+		</div>
+
+		<div >
+			<ul class="list-group list-group-flush">
+				
+				<li *ngFor="let viaje of viajes" class="list-group-item pt-4 pb-2">
+					<div class="titulo-viaje">
+						<p class="mb-0 d-inline"><i class="fas fa-long-arrow-alt-right"></i>{{ viaje.titulo }}</p>
+					</div>
+
+					<div class="contenido-viaje d-flex justify-content-between flex-wrap mt-3 text-muted">
+						<div><p><i class="far fa-calendar-alt"></i> {{ viaje.fecha_inicio | date: 'dd-MM-y' }}</p></div>
+						<div><p><i class="fas fa-map-marked"></i> {{ viaje.total_destinos }} Destinos</p></div>
+						<div><p><i class="fas fa-hiking"></i> {{ viaje.total_actividades }} Actividades</p></div>
+						<div><p><i class="fas fa-users"></i> {{ viaje.total_viajeros }} / {{ viaje.viajeros_max}} viajeros</p></div>
+					</div>
+
+					<div class="botones-viaje">
+						<a class="btn boton" [routerLink]="['/detalle-viaje', viaje.id]">Ver</a>
+						<a class="btn boton">Editar</a>
+						<a class="btn boton boton-cerrar">Cerrar</a>
+					</div>					
+				</li>
+
+			</ul>
+
+		</div>
+
+	</div>
+
+	
+	
+</div>
+
+
+<div class="d-block text-center mx-auto my-4">
+	<a class="btn btn-lg boton mx-3" (click)="handleClick()">Nuevo Viaje</a>
+</div>

@@ -100,7 +100,7 @@ export class EditarPerfilComponent implements OnInit {
 		const image = $event.target.files[0];
 		console.log(image.type)
 		if(image.type === "image/jpeg" || image.type === 'image/png') {
-			const filePath = 'usuario/foto_perfil_'+ this.viajero.id +'.jpg';
+			const filePath = 'usuarios/foto_perfil_'+ this.viajero.id +'.jpg';
 			const fileRef = this.storage.ref(filePath);
 			const tarea = this.storage.upload(filePath, image);
 

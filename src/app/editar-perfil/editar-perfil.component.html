@@ -1,3 +1,7 @@
+<div class="cabeceras-perfil">
+	<h2>Editar perfil</h2>
+</div>
+
 <form novalidate [formGroup]="formulario" (ngSubmit)="onSubmit()" *ngIf="formulario">
 	<input type="text" hidden formControlName="id">
 	<div class="row perfil text-muted">
@@ -108,7 +112,7 @@
 		</div>
 
 		<div class="d-block text-center mx-auto my-4">
- 			<input class="btn btn-lg boton" type="submit" value="Registrar">
+ 			<input class="btn btn-lg boton" type="submit" value="Guardar cambios">
 		</div>
 
 	</div>

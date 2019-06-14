@@ -31,7 +31,7 @@ export class SeccionPerfilComponent implements OnInit {
 	}
 
 	handleClick() {
-		this.router.navigate(['/usuario', this.idViajero, 'editar-perfil'])
+		this.router.navigate(['/usuario', this.idViajero, 'perfil', 'editar'])
 	}
 
 }

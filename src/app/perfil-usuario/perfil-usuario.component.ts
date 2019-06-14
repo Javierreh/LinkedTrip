@@ -7,11 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilUsuarioComponent implements OnInit {
 
+	constructor() { }
 
-  constructor() { }
+	ngOnInit() {
+	}
 
-  ngOnInit() {
-  }
+	onActivate() {
+		window.scrollTo(0, 0);
+	}
 
 
 }

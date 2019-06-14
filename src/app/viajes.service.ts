@@ -16,4 +16,12 @@ export class ViajesService {
 		return this.http.get('http://localhost:3000/api/viajes/' + idViaje)
 	}
 
+	insertViaje(pFormulario) {
+		return this.http.post('http://localhost:3000/api/viajes/new', pFormulario);
+	}
+
+	getAllViajesByIdOrganizador(idOrganizador) {
+		return this.http.get('http://localhost:3000/api/viajes/organizador/' + idOrganizador)
+	}
+
 }

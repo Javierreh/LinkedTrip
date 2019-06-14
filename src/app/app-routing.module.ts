@@ -29,13 +29,13 @@ const routes: Routes = [
 		children: [
 			{ path: '', redirectTo: 'perfil', pathMatch: 'full' },
 			{ path: 'perfil', component: SeccionPerfilComponent },
-			{ path: 'editar-perfil', component: EditarPerfilComponent },
+			{ path: 'perfil/editar', component: EditarPerfilComponent },
 			{ path: 'viajes', component: SeccionViajesComponent },
+			{ path: 'viajes/nuevo', component: NuevoViajeComponent },
 			{ path: 'peticiones', component: SeccionPeticionesComponent },
 			{ path: 'puntuaciones', component: SeccionPuntuacionesComponent }
 		] 
 	},
-	{ path: 'nuevo-viaje', component: NuevoViajeComponent },
 	{ path: '**', redirectTo: 'home' }
 ];
 

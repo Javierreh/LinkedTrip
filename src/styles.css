@@ -22,15 +22,16 @@ body {
   min-height: calc(100vh - 156px);
 }
 
-.boton {
+.boton, a.boton {
 	border-color: #074684;
 	color: #074684;
 }
 
-.boton:hover {
+.boton:hover, a.boton:hover {
 	color: #f2efb6;
 	background-color: #074684;
 	border-color: #0ea5c6;
+	cursor: pointer;
 }
 
 /*.sombra {
@@ -38,3 +39,14 @@ body {
 	-moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
 	box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
 }*/
+
+.cabeceras-perfil {
+	color: #f3f3f3;
+	background-color: rgba(7,70,132,0.7);
+	padding: 8px 40px 3px;
+}
+
+.cabeceras-perfil h2 {
+	font-weight: bold;
+	font-size: 1.5em;
+}

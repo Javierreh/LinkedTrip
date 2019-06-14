@@ -1,0 +1,81 @@
+a.boton {
+	color: #074684;
+}
+
+a.boton:hover {
+	color: #f2efb6;
+}
+
+.mis-viajes ul li {
+	/*background-color: rgba(7,70,132,0.2);*/
+	border: 1px solid #eee;
+	padding-bottom: 0px;
+}
+
+.mis-viajes ul li div.titulo-viaje {
+	padding: 0px 10px 3px 14px;
+	background-color: #f3f3f3;
+	color: rgba(7,70,132,0.7);
+	font-weight: bold;
+	border-radius: 10px;
+	margin-right: 20px; 
+}
+
+.mis-viajes ul li div.titulo-viaje p i {
+	position: relative;
+	top: 4px;
+	margin-right: 8px;
+}
+
+.mis-viajes ul li div.contenido-viaje div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	width: 25%;
+}
+
+.mis-viajes ul li div p {
+	display: flex;
+	flex-direction: column;
+}
+
+.mis-viajes ul li p i {
+	font-size: 1.5em;
+	color: rgba(7,70,132,0.7);
+}
+
+.botones-viaje {
+	padding: 10px;
+	text-align: right;
+}
+.botones-viaje a:nth-child(n+2){
+	margin-left: 8px;
+	
+}
+
+.botones-viaje a {
+	margin-top: 4px;
+}
+
+.boton-cerrar:hover {
+	background: darkred;
+	color: white !important;
+}
+
+
+@media (max-width: 776px) {
+	.mis-viajes ul li div.contenido-viaje div {
+		width: 50%;
+	}
+}
+
+@media (max-width: 446px) {
+	.mis-viajes ul li div.contenido-viaje div {
+		width: 100%;
+	}
+
+	.botones-viaje {
+		text-align: center;
+	}
+}

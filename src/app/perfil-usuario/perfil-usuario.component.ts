@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ViajerosService } from './../viajeros.service';
+import { Router } from '@angular/router';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-perfil-usuario',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilUsuarioComponent implements OnInit {
 
-	constructor() { }
+	constructor(private viajerosService: ViajerosService, private router: Router) {
+
+	}
 
 	ngOnInit() {
+		if (!localStorage.getItem('token')) {
+			this.router.navigate(['/home']);
+		}
 	}
 
 	onActivate() {

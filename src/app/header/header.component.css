@@ -23,3 +23,17 @@ header nav .navbar-brand .secondary-color {
 .nav-link:hover {
 	color: #f2efb6 !important;
 }
+
+.iconos-logged {
+	font-size: 1.5em;
+
+}
+
+.salir {
+	cursor: pointer;
+}
+
+.salir i {
+	position: relative;
+	top: 4px;
+}

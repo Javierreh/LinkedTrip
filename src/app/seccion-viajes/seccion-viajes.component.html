@@ -3,27 +3,27 @@
 	<div class="mis-viajes">
 		
 		<div class="cabeceras-perfil">
-			<h2>Mis viajes</h2>
+			<h2>Viajes que organizo</h2>
 		</div>
 
-		<div >
+		<div *ngIf="viajes; else elseViajes">
 			<ul class="list-group list-group-flush">
 				
 				<li *ngFor="let viaje of viajes" class="list-group-item pt-4 pb-2">
 					<div class="titulo-viaje">
-						<p class="mb-0 d-inline"><i class="fas fa-long-arrow-alt-right"></i>{{ viaje.titulo }}</p>
+						<p class="mb-0 d-inline"><i class="fas fa-long-arrow-alt-right"></i>{{ viaje?.titulo }}</p>
 					</div>
 
 					<div class="contenido-viaje d-flex justify-content-between flex-wrap mt-3 text-muted">
-						<div><p><i class="far fa-calendar-alt"></i> {{ viaje.fecha_inicio | date: 'dd-MM-y' }}</p></div>
-						<div><p><i class="fas fa-map-marked"></i> {{ viaje.total_destinos }} Destinos</p></div>
-						<div><p><i class="fas fa-hiking"></i> {{ viaje.total_actividades }} Actividades</p></div>
-						<div><p><i class="fas fa-users"></i> {{ viaje.total_viajeros }} / {{ viaje.viajeros_max}} viajeros</p></div>
+						<div><p><i class="far fa-calendar-alt"></i> {{ viaje?.fecha_inicio | date: 'dd-MM-y' }}</p></div>
+						<div><p><i class="fas fa-map-marked"></i> {{ viaje?.total_destinos }} Destinos</p></div>
+						<div><p><i class="fas fa-hiking"></i> {{ viaje?.total_actividades }} Actividades</p></div>
+						<div><p><i class="fas fa-users"></i> {{ viaje?.total_viajeros + 1 }} / {{ viaje?.viajeros_max}} viajeros</p></div>
 					</div>
 
 					<div class="botones-viaje">
-						<a class="btn boton" [routerLink]="['/detalle-viaje', viaje.id]">Ver</a>
-						<a class="btn boton">Editar</a>
+						<a class="btn boton" [routerLink]="['/detalle-viaje', viaje?.id]">Ver más</a>
+						<a class="btn boton" [routerLink]="['/usuario', 'viajes', 'editar', viaje.id]">Editar</a>
 						<a class="btn boton boton-cerrar">Cerrar</a>
 					</div>					
 				</li>
@@ -32,8 +32,56 @@
 
 		</div>
 
+		<ng-template #elseViajes>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item pt-4 pb-2">
+					<p>No estás organizando ningún viaje</p>
+				</li>
+			</ul>
+		</ng-template>
+
 	</div>
 
+	<div class="mis-viajes">
+			
+		<div class="cabeceras-perfil">
+			<h2>Viajes en los que participo</h2>
+		</div>
+
+		<div *ngIf="viajesParticipo; else elseParticipo">
+			<ul class="list-group list-group-flush">
+				
+				<li *ngFor="let viajePar of viajesParticipo" class="list-group-item pt-4 pb-2">
+					<div class="titulo-viaje">
+						<p class="mb-0 d-inline"><i class="fas fa-long-arrow-alt-right"></i>{{ viajePar?.titulo }}</p>
+					</div>
+
+					<div class="contenido-viaje d-flex justify-content-between flex-wrap mt-3 text-muted">
+						<div><p><i class="far fa-calendar-alt"></i> {{ viajePar?.fecha_inicio | date: 'dd-MM-y' }}</p></div>
+						<div><p><i class="fas fa-map-marked"></i> {{ viajePar?.total_destinos }} Destinos</p></div>
+						<div><p><i class="fas fa-hiking"></i> {{ viajePar?.total_actividades }} Actividades</p></div>
+						<div><p><i class="fas fa-users"></i> {{ viajePar?.total_viajeros + 1 }} / {{ viajePar?.viajeros_max}} viajeros</p></div>
+					</div>
+
+					<div class="botones-viaje">
+						<a class="btn boton" [routerLink]="['/detalle-viaje', viajePar?.id]">Ver más</a>
+						<a class="btn boton boton-cerrar">Salir</a>
+					</div>					
+				</li>
+
+			</ul>
+
+		</div>
+
+		<ng-template #elseParticipo>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item pt-4 pb-2">
+					<p>No estás participando en ningún viaje</p>
+				</li>
+			</ul>
+		</ng-template>
+	
+	</div>
 	
 	
 </div>

@@ -80,7 +80,8 @@
 				</div>
 
 				<div class="mx-auto text-center">
-					<a class="btn btn-lg boton" role="button" [routerLink]="['/registro']">Regístrate</a>
+					<a *ngIf="!viajerosService.isUserLogged()" class="btn btn-lg boton" role="button" [routerLink]="['/registro']">Regístrate</a>
+					<a *ngIf="viajerosService.isUserLogged()" class="btn btn-lg boton" role="button" [routerLink]="['/usuario']">Mi perfil</a>
 				</div>
 			</div>
 		</article>

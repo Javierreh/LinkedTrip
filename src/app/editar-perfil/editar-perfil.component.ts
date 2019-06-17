@@ -23,16 +23,14 @@ export class EditarPerfilComponent implements OnInit {
 	editado: any;
 
 	constructor(private activatedRoute: ActivatedRoute, private viajerosService: ViajerosService, private storage: AngularFireStorage, private router: Router) {
-		this.activatedRoute.parent.params.subscribe(params => {
-			this.idViajero = params.id;
-		});
+		// this.activatedRoute.parent.params.subscribe(params => {
+		// 	this.idViajero = params.id;
+		// });
 	}
 
 	async ngOnInit() {
 		
-		this.viajeroObj = await this.viajerosService.getUserById(this.idViajero).toPromise();
-			// if(res[0].intereses != null)
-			// 	res[0].intereses = res[0].intereses.split(', ');
+		this.viajeroObj = await this.viajerosService.getUserById(localStorage.getItem('token')).toPromise();
 
 		this.viajero = this.viajeroObj[0];
 		this.viajero.fecha_nacimiento = moment(this.viajero.fecha_nacimiento).format('YYYY-MM-DD');
@@ -47,9 +45,9 @@ export class EditarPerfilComponent implements OnInit {
 			email: new FormControl(this.viajero.email, [
 				Validators.required
 			]),
-			password: new FormControl(this.viajero.password, [
-				Validators.required
-			]),
+			// password: new FormControl('******', [
+			// 	Validators.required
+			// ]),
 			nombre: new FormControl(this.viajero.nombre, [
 				Validators.required
 			]),
@@ -91,9 +89,13 @@ export class EditarPerfilComponent implements OnInit {
 
 
 	async onSubmit() {
-		this.formulario.value.foto_perfil = this.imageUrl;
+		if (this.imageUrl) {
+			this.formulario.value.foto_perfil = this.imageUrl;
+		}
+		console.log(this.formulario.value);
+		this.formulario.value.password = this.viajero.password;
 		this.editado = await this.viajerosService.editUsuario(this.formulario.value).toPromise()
-		this.router.navigate(['usuario', this.viajero.id, 'perfil'])
+		this.router.navigate(['usuario', 'perfil'])
 	}
 
 	onChangeImage($event) {

@@ -5,22 +5,32 @@
 		<div class="container">
 
 			<div class="username d-flex justify-content-between text-muted">
-				<p class="mb-0"><i class="fas fa-user"></i>shu_ViaJerilla_44</p>
-				<p class="mb-0"><span>Puntuación: </span>8.7<i class="fas fa-star"></i></p>
+				<p class="mb-0"><i class="fas fa-user"></i>{{ viajero?.usuario }}</p>
+
+				<p *ngIf="viajero?.puntuacion_media; else elsePuntos" class="mb-0"><span>Puntuación: </span>{{ viajero?.puntuacion_media }}<i class="fas fa-star"></i></p>
+				<ng-template #elsePuntos>
+					<p class="mb-0"><span>Puntuación: </span>N/A<i class="fas fa-star"></i></p>
+				</ng-template>
+
 			</div>
 
 			<div class="card cabecera-viajero rounded-0">
 				<div class="row no-gutters">
 					<div class="col-lg-6 d-flex align-items-center">
-						<img src="../../assets/images/traveler.jpeg" class="card-img rounded-0" alt="Imagen del viaje">
+						<img [src]="viajero?.foto_perfil || './../../assets/images/defaultphoto.jpeg'" class="card-img rounded-0" alt="Imagen del viajero">
 					</div>
 					<div class="col-lg-6">
 						<div class="card-body">
-							<h2 class="card-title text-center">Pepita del Valle García</h2>
+							<h2 class="card-title text-center">{{ viajero?.nombre }} {{ viajero?.apellidos }}</h2>
 							<hr>
 							<h3 class="card-text sobre-mi mb-0">Sobre mí:</h3>
-							<p class="card-text text-muted sobre-mi-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati ea, praesentium veritatis, laudantium rem ratione eveniet, animi hi labore recusandae culpa mollitia! Ipsum assumenda temporibus minima nihil. Aut, asperiores animi! Lorem ipsum dolor si amet, consectetur adipisicing elit. Nisi itaque voluptatum enim fuga ducimus ipsum, nostrum quam eos. Officia, fugiat. Lorem ipsum dolor si amet.</p>
-							<p class="card-text registrado"><small>Registrado el 02/11/2017</small></p>
+
+							<p *ngIf="viajero?.sobre_mi; else elseSobre" class="card-text text-muted sobre-mi-text">{{ viajero?.sobre_mi }}</p>
+							<ng-template #elseSobre>
+								<p class="card-text text-muted sobre-mi-text">N/A</p>
+							</ng-template>
+
+							<p class="card-text registrado"><small>Registrado el {{ viajero?.fecha_registro | date: 'dd-MM-y' }}</small></p>
 						</div>
 					</div>
 				</div>
@@ -29,68 +39,90 @@
 			<div class="contenido-viajero row">
 				<div class="col-lg-6 seccion-viajero px-0 border">
 					<h3 class="p-3 mb-0">INTERESES</h3>
-					<div class="intereses text-muted">
-						<div>Cine</div>
-						<div>Videojuegos</div>
-						<div>TV</div>
-						<div>Correr</div>
-						<div>Dormir</div>
-						<div>Programar</div>
-						<div>Playa</div>
-						<div>Natación</div>
+
+					<div *ngIf="viajero?.intereses && viajero?.intereses[0] != ''; else elseIntereses" class="intereses text-muted">
+						<div *ngFor="let interes of viajero?.intereses"> {{ interes }}</div>
 					</div>
+
+					<ng-template #elseIntereses>
+						<div class="text-muted">
+						<div class="p-4 pl-5">N/A</div>
+					</div>
+					</ng-template>
 				</div>
 
 				<div class="col-lg-6 seccion-viajero px-0 border">
 					<h3 class="p-3 mb-0">OTROS DATOS</h3>
 					<div class="otros-datos text-muted">
-						<p><span><i class="fas fa-map-marker-alt"></i></span> Málaga</p>
-						<p><span><i class="fas fa-venus-mars"></i></span> Mujer</p>
-						<p><span><i class="fas fa-birthday-cake"></i></span> 29 años</p>
-						<p><span><i class="fas fa-graduation-cap"></i></span> Formación Profesional</p>
-						<p class="w-100"><span><i class="fas fa-briefcase"></i></span> Técnico superior en gestion de equipos</p>
-						<p class="w-100"><span><i class="fas fa-comment"></i></span> Español, Inglés, Francés, Portugués</p>
+
+						<p *ngIf="viajero?.ciudad; else elseCiudad"><span><i class="fas fa-map-marker-alt"></i></span> {{ viajero?.ciudad }}</p>
+						<ng-template #elseCiudad>
+							<p ><span><i class="fas fa-map-marker-alt"></i></span> N/A</p>
+						</ng-template>
+
+						<p *ngIf="viajero?.sexo == 'F'"><span><i class="fas fa-venus-mars"></i></span> Mujer</p>
+						<p *ngIf="viajero?.sexo == 'M'"><span><i class="fas fa-venus-mars"></i></span> Hombre</p>
+						<p *ngIf="!viajero?.sexo"><span><i class="fas fa-venus-mars"></i></span> N/A</p>
+
+						<p *ngIf="edad; else elseEdad"><span><i class="fas fa-birthday-cake"></i></span> {{ edad }} años</p>
+						<ng-template #elseEdad>
+							<p><span><i class="fas fa-birthday-cake"></i></span> N/A</p>
+						</ng-template>
+
+						<p *ngIf="viajero?.educacion; else elseEducacion"><span><i class="fas fa-graduation-cap"></i></span> {{ viajero?.educacion }}</p>
+						<ng-template #elseEducacion>
+							<p><span><i class="fas fa-graduation-cap"></i></span> N/A</p>
+						</ng-template>
+
+						<p *ngIf="viajero?.ocupacion; else elseOcupacion" class="w-100"><span><i class="fas fa-briefcase"></i></span> {{ viajero?.ocupacion }}</p>
+						<ng-template #elseOcupacion>
+							<p class="w-50"><span><i class="fas fa-briefcase"></i></span> N/A</p>
+						</ng-template>
+
+
+						<p *ngIf="viajero?.idiomas; else elseIdiomas" class="w-100"><span><i class="fas fa-comment"></i></span> {{ viajero?.idiomas}}</p>
+						<ng-template #elseIdiomas>
+							<p class="w-50"><span><i class="fas fa-comment"></i></span> N/A</p>
+						</ng-template>
+
 					</div>
 				</div>
 
 				<div class="col-12 seccion-viajero px-0 border">
 					<h3 class="p-3 mb-0">COMENTARIOS Y PUNTUACIÓN</h3>
-					<div class="comentarios">
-						<div>
+					<div *ngIf="comentarios; else elseComentarios" class="comentarios">
+						<div *ngFor="let coment of comentarios">
 							<div class="d-flex justify-content-between mb-3">
-								<h4 class="mb-0 pb-0">Gran viajera cercana!<span class="puntos">8.9</span></h4>
+								<h4 class="mb-0 pb-0">{{ coment?.titulo_comentario }}<span class="puntos">{{ coment.puntos }}</span></h4>
 							</div>
-							<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis molestias, in atque impedit, rerum optio ad aperiam officia cumque, provident molestiae deleniti, obcaecati labore necessitatibus iste deserunt at vel nesciunt!</p>
+							<p class="text-muted">{{ coment.comentario }}</p>
 
 							<div class="comentario-footer">
-								<p class="mb-0">Comentado por: viajero92839</p>
-								<p class="mb-3">En el viaje: "Vamonos a Londres 1 semana!!"</p>
+								<p class="mb-0">Comentado por: {{ coment.usuario_puntua }}</p>
+								<p class="mb-3">En el viaje: "{{ coment.titulo_viaje }}"</p>
 							</div>
-							
-						</div>
 
-						<hr>
+							<hr>
+
+						</div>
 						
-						<div>
-							<div class="d-flex justify-content-between mb-3">
-								<h4 class="mb-0 pb-0">Gran viajera cercana!<span class="puntos">7.3</span></h4>
-							</div>
-							<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis molestias, in atque impedit, rerum optio ad aperiam officia cumque, provident molestiae deleniti, obcaecati labore necessitatibus iste deserunt at vel nesciunt!</p>
-							<div class="comentario-footer">
-								<p class="mb-0">Comentado por: viajero92839</p>
-								<p class="mb-3">En el viaje: "Vamonos a Londres 1 semana!!"</p>
-							</div>
-						</div>
 					</div>
+					
+					<ng-template #elseComentarios>
+						<div class="comentarios">
+							<p class="mb-4 text-muted">Aún no tienes comentarios en tu perfil</p>
+						</div>
+					</ng-template>
+
 				</div>
 
-				<div class="col-12 seccion-viajero px-0 border">
+				<!-- <div class="col-12 seccion-viajero px-0 border">
 					<h3 class="p-3 mb-0">VIAJES REALIZADOS</h3>
 					<div class="viajes text-muted">
 						<p><i class="fas fa-long-arrow-alt-right"></i>"Vamonos a Londres 1 semana!!" — 4 viajeros — 29/04/2016</p>
 						<p><i class="fas fa-long-arrow-alt-right"></i>"La vuelta al mundo en 30 días!" — 28 viajeros — 29/04/2016</p>
 					</div>
-				</div>
+				</div> -->
 
 			</div>
 

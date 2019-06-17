@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ViajerosService } from './../viajeros.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -11,7 +12,10 @@ export class RegistroComponent implements OnInit {
 
 	formulario: FormGroup;
 
-	constructor(private viajerosService: ViajerosService) {
+	insertado: any;
+	login: any;
+
+	constructor(private viajerosService: ViajerosService, private router: Router) {
 		this.formulario = new FormGroup({
 			nombre: new FormControl('', [
 				Validators.required,
@@ -43,14 +47,22 @@ export class RegistroComponent implements OnInit {
 	}
 
 	ngOnInit() {
+		if (localStorage.getItem('token')) {
+			this.router.navigate(['/usuario'])
+		}
 	}
 	
-	onSubmit() {
-		this.viajerosService.insertViajero(this.formulario.value).subscribe((res) => {
-			
-		});
+	async onSubmit() {
+		this.insertado = await this.viajerosService.insertViajero(this.formulario.value).toPromise();
 
-		this.formulario.reset();
+		if (this.insertado.insertId) {
+			this.login = await this.viajerosService.loginUser(this.formulario.value).toPromise()
+			localStorage.setItem('token', this.login.token);
+			this.router.navigate(['/usuario']);
+		}
+		else {
+			this.router.navigate(['/home']);
+		}
 	}	
 
 }

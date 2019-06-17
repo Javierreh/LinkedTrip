@@ -1,8 +1,8 @@
-.nuevo-viaje .campos {
+.editar-viaje .campos {
 	border-bottom: 1.15px solid #e3e3e3;
 }
 
-.nuevo-viaje .campos span.titulo_campo {
+.editar-viaje .campos span.titulo_campo {
 	padding: 4px 10px 3px 14px;
 	background-color: #f3f3f3;
 	color: rgba(7,70,132,0.7);
@@ -11,11 +11,11 @@
 	margin-right: 20px;
 }
 
-.nuevo-viaje ul.campos {
+.editar-viaje ul.campos {
 	margin-top: 20px;
 }
 
-.nuevo-viaje ul.campos li {
+.editar-viaje ul.campos li {
 	display: inline-block;
 	width: 50%;
 	padding: 0 10px 20px 20px;
@@ -36,11 +36,9 @@ img {
 	.nuevo-viaje ul.campos li {
 		width: 100%;
 	}
-
 }
 
-
-.nuevo-viaje ul.campos li:nth-last-child(1) {
+.editar-viaje ul.campos li:nth-last-child(1) {
 	border-bottom: none;
 }
 
@@ -83,12 +81,3 @@ img {
 	background-color: rgba(7,70,132,1);
 	color: #f2efb6
 }
-
-
-/*.destino-elegido {
-	background-color: #f3f3f3;
-	color: rgba(7,70,132,0.7);
-	display: inline-block;
-	margin: 10px 10px 0 0;
-	padding: 3px 10px 3px 6px;
-}*/

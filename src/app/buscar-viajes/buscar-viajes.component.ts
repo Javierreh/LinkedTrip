@@ -11,15 +11,18 @@ export class BuscarViajesComponent implements OnInit {
 
 	formulario: FormGroup;
 	viajes: any;
+	consulta: string;
+	arrConsulta: any;
 
 	constructor(private viajesService: ViajesService) {
+
+		this.arrConsulta = [];
+
 		this.formulario = new FormGroup({
 			destino: new FormControl(''),
 			fecha_inicio: new FormControl(''),
 			fecha_fin: new FormControl(''),
-			duracion: new FormControl(''),
 			viajeros_max: new FormControl(''),
-			tipo_turismo: new FormControl(''),
 			tipo_alojamiento: new FormControl(''),
 			nivel_economico: new FormControl('')
 		});
@@ -32,8 +35,18 @@ export class BuscarViajesComponent implements OnInit {
 	}
 
 	onSubmit() {
-		console.log(this.formulario.value);
-		this.formulario.reset();
+		this.viajesService.filter(this.formulario.value).subscribe(res => {
+			this.viajes = res;
+			this.formulario = new FormGroup({
+				destino: new FormControl(''),
+				fecha_inicio: new FormControl(''),
+				fecha_fin: new FormControl(''),
+				viajeros_max: new FormControl(''),
+				tipo_alojamiento: new FormControl(''),
+				nivel_economico: new FormControl('')
+			});
+
+		});
 	}
 
 }

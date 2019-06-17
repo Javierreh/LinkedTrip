@@ -67,3 +67,10 @@ main form .form-group {
 		font-size: 1.3em;
 	}
 }
+
+.error-mensaje {
+	color: darkred;
+	font-size: 0.8em;
+	position: absolute;
+	bottom: -4px;
+}

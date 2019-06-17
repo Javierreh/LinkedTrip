@@ -20,6 +20,10 @@
 					<input class="form-control form-control-lg" type="password" formControlName="password" placeholder="Contraseña">
 				</div>
 
+				<div class="position-relative">
+					<p class="error-mensaje">{{ error }}</p>
+				</div>
+
 				<input class="btn btn-outline-dark btn-lg btn-rounded btn-block mb-2 buttonReg" type="submit" value="Entrar" [disabled]="!formulario.valid">
 
 			</form>

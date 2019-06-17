@@ -1,13 +1,15 @@
-<div class="nuevo-viaje">
-				
-	<div class="cabeceras-perfil">
-		<h2>Organizar un nuevo viaje</h2>
-	</div>
+<div class="seccion-viajes">
+
+	<div class="editar-viaje">
+		
+		<div class="cabeceras-perfil">
+			<h2>Editar viaje</h2>
+		</div>
 
 	<div class="row">
 
-		<form novalidate [formGroup]="formulario" (ngSubmit)="onSubmit()">
-	
+		<form novalidate [formGroup]="formulario" (ngSubmit)="onSubmit()" *ngIf="formulario">
+			<input type="text" hidden formControlName="id">
 			<div class="col-12 px-3 pt-0">
 				<ul class="campos mb-0">
 
@@ -124,7 +126,7 @@
 								</div>
 								
 								<ng-template #elseImagen>
-									<img [src]="'./../../assets/images/placeholder-image.png'" alt="Foto de perfil">
+									<img [src]="viaje?.foto || './../../assets/images/placeholder-image.png'" alt="Foto de perfil">
 								</ng-template>
 							</div>
 						</div>
@@ -132,21 +134,11 @@
 					</li>
 
 				</ul>
-
-
-			<!-- 	<div class="imagen-perfil">
-			<img *ngIf="imageUrl; else elseImagen" [src]="imageUrl || './../../assets/images/defaultphoto.jpeg'" alt="Foto de perfil">
-			<ng-template #elseImagen>
-				<img [src]="viajero?.foto_perfil || './../../assets/images/defaultphoto.jpeg'" alt="Foto de perfil">
-			</ng-template>
-			
-			<p *ngIf="uploadPercent" class="mb-0 text-center porcentaje">{{ uploadPercent | async | number: '1.0-0' }} %</p>
-		</div> -->
 					
 			</div>
 
 			<div class="d-block text-center mx-auto my-4">
-					<input class="btn btn-lg boton" type="submit" value="Nuevo Viaje">
+				<input class="btn btn-lg boton" type="submit" value="Guardar Cambios">
 			</div>
 
 		</form>
@@ -154,4 +146,3 @@
 	</div>
 		
 </div>
-

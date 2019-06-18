@@ -26,6 +26,7 @@ import { environment } from 'src/environments/environment';
 import { NuevoViajeComponent } from './nuevo-viaje/nuevo-viaje.component';
 import { EditarViajeComponent } from './editar-viaje/editar-viaje.component';
 import { EnviarPeticionComponent } from './enviar-peticion/enviar-peticion.component';
+import { ForoViajeComponent } from './foro-viaje/foro-viaje.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { EnviarPeticionComponent } from './enviar-peticion/enviar-peticion.compo
     EditarPerfilComponent,
     NuevoViajeComponent,
     EditarViajeComponent,
-    EnviarPeticionComponent
+    EnviarPeticionComponent,
+    ForoViajeComponent
   ],
   imports: [
     BrowserModule,

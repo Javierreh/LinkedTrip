@@ -22,8 +22,13 @@
 				</ul>
 
 				<ul class="navbar-nav ml-auto" *ngIf="viajerosService.isUserLogged()">
+					
 					<li class="nav-item mr-4">
-						<a class="nav-link text-white" [routerLink]="['/usuario']"><i class="fas fa-user iconos-logged"></i><span class="ml-2">Perfil</span></a>
+						<a class="nav-link text-white" [routerLink]="['/buscar', 'viajes']"><i class="fas fa-search iconos-logged"></i><span class="ml-2">Buscar</span></a>
+					</li>
+
+					<li class="nav-item mr-4">
+						<a class="nav-link text-white" [routerLink]="['/usuario']"><i class="fas fa-user iconos-logged"></i><span class="ml-2">{{ usuario?.usuario }}</span></a>
 					</li>
 
 					<li class="nav-item">

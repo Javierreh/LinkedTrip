@@ -82,7 +82,7 @@
 								<p class="bd-highlight">Puntuación: {{ viaje?.puntuacion_organizador }}</p>
 							</ng-template>
 
-							<input class="btn btn-lg boton mt-auto bd-highlight" type="submit" value="Ver perfil" [routerLink]="['/perfil-viajero','1']">
+							<input class="btn btn-lg boton mt-auto bd-highlight" type="submit" value="Ver perfil" [routerLink]="['/perfil-viajero', viaje?.id_organizador]">
 						</div>
 					</div>
 				</div>
@@ -98,11 +98,25 @@
 						</ul>
 					</div>
 				</div>
+
+				<div class="col-md-12 px-0 seccion-viaje border">
+					<h3 class="p-3">MAPA DE DESTINOS</h3>
+					<div class="text-muted">
+						<ul class="text-muted d-flex justify-content-center">
+							<li *ngIf="destinos == null || destinos == ''; else elseMapa">No hay destinos añadidos al viaje</li>
+							<ng-template #elseMapa>	
+								<li class="d-flex justify-content-center">
+									<div #googleMap class="map"></div>
+								</li>
+							</ng-template>
+						</ul>
+					</div>
+				</div>
 			
 			</div>
 			
 			<div class="d-block text-center my-4">
-				<input class="btn btn-lg boton" type="submit" value="Enviar petición">
+				<input class="btn btn-lg boton" type="submit" value="Enviar petición" [routerLink]="['/detalle-viaje', idViaje, 'enviar-peticion']">
 			</div>
 
 		</div>

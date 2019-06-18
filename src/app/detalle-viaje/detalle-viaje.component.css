@@ -120,6 +120,12 @@ main section.detalle-viaje {
 }
 
 
+.map {
+	width: 600px;
+	height: 600px;
+}
+
+
 /* Media Queries */
 
 @media (max-width: 576px) {

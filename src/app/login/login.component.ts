@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   formulario: FormGroup;
 
   error: any;
+  res: any;
 
 	constructor(private viajerosService: ViajerosService, private router: Router) {
 		this.formulario = new FormGroup({
@@ -30,19 +31,18 @@ export class LoginComponent implements OnInit {
 
 	}
 
-  	onSubmit() {
+  	async onSubmit() {
 		// console.log(this.formulario.value);
-		this.viajerosService.loginUser(this.formulario.value).subscribe(res => {
-			localStorage.setItem('token', res["token"]);
-			if (res["token"]) {
+		this.res = await this.viajerosService.loginUser(this.formulario.value).toPromise();
+			localStorage.setItem('token', this.res["token"]);
+			if (this.res["token"]) {
 				this.router.navigate(['usuario'])
 			}
 			else {
-				this.error = res['error'];
+				this.error = this.res['error'];
 				this.formulario.reset();
 			}
-		});
-		// 
+
 	}	
 
 }

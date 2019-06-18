@@ -15,6 +15,8 @@ import { SeccionPeticionesComponent} from './seccion-peticiones/seccion-peticion
 import { SeccionPuntuacionesComponent} from './seccion-puntuaciones/seccion-puntuaciones.component';
 import { NuevoViajeComponent } from './nuevo-viaje/nuevo-viaje.component';
 import { EditarViajeComponent } from './editar-viaje/editar-viaje.component';
+import { EnviarPeticionComponent } from './enviar-peticion/enviar-peticion.component';
+import { ForoViajeComponent } from './foro-viaje/foro-viaje.component';
 
 const routes: Routes = [
 	{ path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -23,7 +25,9 @@ const routes: Routes = [
 	{ path: 'login', component: LoginComponent },
 	{ path: 'buscar/viajes', component: BuscarViajesComponent },
 	{ path: 'detalle-viaje/:id', component: DetalleViajeComponent },
+	{ path: 'detalle-viaje/:id/enviar-peticion', component: EnviarPeticionComponent },
 	{ path: 'perfil-viajero/:id', component: PerfilViajeroComponent },
+
 	{ 
 		path: 'usuario', 
 		component: PerfilUsuarioComponent,
@@ -34,6 +38,7 @@ const routes: Routes = [
 			{ path: 'viajes', component: SeccionViajesComponent },
 			{ path: 'viajes/nuevo', component: NuevoViajeComponent },
 			{ path: 'viajes/editar/:idViaje', component: EditarViajeComponent },
+			{ path: 'viajes/foro/:idViaje', component: ForoViajeComponent },
 			{ path: 'peticiones', component: SeccionPeticionesComponent },
 			{ path: 'puntuaciones', component: SeccionPuntuacionesComponent }
 		] 

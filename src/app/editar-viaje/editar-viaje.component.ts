@@ -23,6 +23,8 @@ export class EditarViajeComponent implements OnInit {
 	destinos: any;
 	actividades: any;
 
+	actividadesActuales: any;
+
 	uploadPercent: Observable<number>;
 	imageUrl: string;
 	randomNumber: number;
@@ -52,14 +54,16 @@ export class EditarViajeComponent implements OnInit {
 
 		this.viaje = await this.viajesService.getViajeByIdSimple(this.idViaje).toPromise();
 		this.viaje = this.viaje[0];
+		console.log(this.viaje);
 
 		this.usuario = await this.viajerosService.getUserById(localStorage.getItem('token')).toPromise();
 		
+
 		if (this.usuario[0].id != this.viaje.fk_organizador) {
 			this.router.navigate(['usuario', 'viajes'])
 		}
 		else {
-			console.log(this.viaje);
+			// console.log('holaaa ' + this.viaje.id);
 
 			this.viaje.fecha_inicio = moment(this.viaje.fecha_inicio).format('YYYY-MM-DD');
 			this.viaje.fecha_fin = moment(this.viaje.fecha_fin).format('YYYY-MM-DD');
@@ -97,6 +101,8 @@ export class EditarViajeComponent implements OnInit {
 					Validators.required
 				]),
 			});
+
+			console.log(this.formulario.value);
 
 
 			$("form").keypress(function(e) {
@@ -160,35 +166,77 @@ export class EditarViajeComponent implements OnInit {
 			// 	$('#inputPlace').val('');
 
 			// });
+
+			this.destinos = await this.viajesService.getDestinosByIdViaje(this.viaje.id).toPromise();
+			console.log(this.destinos);
+
+			let lista = $('.lista_destinos');
+
+			for(let destino of this.destinos) {
+
+				let parent = this.renderer.createElement('div');
+				let dest = this.renderer.createElement('span');
+				let flecha = this.renderer.createElement('i');
+				parent.className = "flecha-y-destino"
+				flecha.className = "fas fa-long-arrow-alt-right"
+				dest.innerHTML = destino.nombre;
+				dest.className = "destino-elegido text-muted";
+
+				this.renderer.appendChild(parent, flecha);
+				this.renderer.appendChild(parent, dest);
+
+				this.renderer.appendChild(this.div.nativeElement, parent);
+
+			}
+
+
+			this.actividadesActuales = await this.viajesService.getActividadesByIdViaje(this.viaje.id).toPromise();
+			console.log(this.actividadesActuales);
+
+			// let lista = $('.lista_destinos');
+
+			for(let actividad of this.actividadesActuales) {
+
+				let parent = this.renderer.createElement('div');
+				let act = this.renderer.createElement('span');
+				let flecha = this.renderer.createElement('i');
+				parent.className = "flecha-y-destino"
+				flecha.className = "fas fa-long-arrow-alt-right"
+				act.innerHTML = actividad.nombre;
+				act.className = "destino-elegido text-muted";
+
+				this.renderer.appendChild(parent, flecha);
+				this.renderer.appendChild(parent, act);
+
+				this.renderer.appendChild(this.activi.nativeElement, parent);
+			}
+
 		}
 	}
 
 
-	addActividad() {
+	// addActividad() {
 
-		this.actividades.push($('#inputActividades').val());
+	// 	this.actividades.push($('#inputActividades').val());
 		
-		console.log(this.actividades);
+	// 	console.log(this.actividades);
 
-		let parent = this.renderer.createElement('div');
-		let act = this.renderer.createElement('span');
-		let flecha = this.renderer.createElement('i');
-		parent.className = "flecha-y-destino";
-		// parent.addEventListener("click", this.removeActividad(event));
-		flecha.className = "fas fa-long-arrow-alt-right";
-		act.innerHTML = $('#inputActividades').val();
-		act.className = "destino-elegido text-muted";
+	// 	let parent = this.renderer.createElement('div');
+	// 	let act = this.renderer.createElement('span');
+	// 	let flecha = this.renderer.createElement('i');
+	// 	parent.className = "flecha-y-destino";
+	// 	flecha.className = "fas fa-long-arrow-alt-right";
+	// 	act.innerHTML = $('#inputActividades').val();
+	// 	act.className = "destino-elegido text-muted";
 
-		this.renderer.appendChild(parent, flecha);
-		this.renderer.appendChild(parent, act);
+	// 	this.renderer.appendChild(parent, flecha);
+	// 	this.renderer.appendChild(parent, act);
 
-		this.renderer.appendChild(this.activi.nativeElement, parent);
+	// 	this.renderer.appendChild(this.activi.nativeElement, parent);
 
-		$('#inputActividades').val('');
+	// 	$('#inputActividades').val('');
 
-		// }
-		// console.log($('#lista_activi'));
-	}
+	// }
 
 
 	onSubmit() {

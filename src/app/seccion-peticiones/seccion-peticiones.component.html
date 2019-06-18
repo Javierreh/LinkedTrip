@@ -1,3 +1,98 @@
-<p>
-  seccion-peticiones works!
-</p>
+<div class="seccion-peticiones">
+
+	<div class="mis-peticiones">
+
+		<div class="cabeceras-perfil">
+			<h2>Peticiones enviadas</h2>
+		</div>
+
+		<div *ngIf="peticionesEnviadas; else elsePeticionesEnviadas">
+
+			<ul class="list-group list-group-flush">
+				
+				<li *ngFor="let peticion of peticionesEnviadas; let i = index" class="list-group-item pt-3 pb-3">
+					
+					<div class="titulo-viaje">
+						<p class="mb-0 ml-3"><i class="fas fa-long-arrow-alt-right"></i>{{ peticion?.titulo_viaje }}</p>
+					</div>
+
+					<div class="text-muted">
+						{{ peticion?.comentario }}
+					</div>
+					
+					<div class="footer-mensaje mt-3">
+						<div>
+							<small>Fecha de envio: {{ peticion?.fecha_peticion | date: 'dd-MM-y' }}</small>
+						</div>
+						<div class="botones-viaje text-right mt-3">
+							<a class="btn boton" [routerLink]="['/detalle-viaje', peticion?.id_viaje]">Ver viaje</a>
+							<a class="btn boton eliminar-peticion" (click)="cancelarPeticion(i)">Cancelar</a>
+						</div>	
+					</div>	
+
+				</li>
+
+			</ul>
+
+		</div>
+
+		<ng-template #elsePeticionesEnviadas>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item pt-4 pb-2">
+					<p>No tienes ninguna petición enviada</p>
+				</li>
+			</ul>
+		</ng-template>
+
+	</div>
+
+	<div class="mis-peticiones">
+		
+		<div class="cabeceras-perfil">
+			<h2>Peticiones recibidas</h2>
+		</div>
+
+		<div *ngIf="peticionesRecibidas; else elsePeticionesRecibidas">
+
+			<ul class="list-group list-group-flush">
+				
+				<li *ngFor="let peticionRe of peticionesRecibidas; let i = index" class="list-group-item pt-3 pb-3">
+					
+					<div class="titulo-viaje">
+						<p class="mb-0 ml-3"><i class="fas fa-long-arrow-alt-right"></i>{{ peticionRe?.titulo_viaje }}</p>
+					</div>
+
+					<div class="text-muted">
+						{{ peticionRe?.comentario }}
+					</div>
+					
+					<div class="footer-mensaje mt-3">
+						<div>
+							<small> Enviado por: </small><a (click)="perfilViajero(i)" class="enlace-viajero">{{ peticionRe?.usuario_viajero }}</a>
+							<br>
+							<small>Fecha de envio: {{ peticionRe?.fecha_peticion | date: 'dd-MM-y' }} </small>
+						</div>
+						<div class="botones-viaje text-right mt-3">
+							<a class="btn boton" [routerLink]="['/detalle-viaje', peticionRe?.id_viaje]">Ver viaje</a>
+							<a class="btn boton aceptar-peticion" (click)="aceptoPeticion(i)">Aceptar</a>
+							<a class="btn boton eliminar-peticion" (click)="descartarPeticion(i)">Descartar</a>
+						</div>	
+					</div>	
+
+				</li>
+
+			</ul>
+
+		</div>
+
+		<ng-template #elsePeticionesRecibidas>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item pt-4 pb-2">
+					<p>No has recibido ninguna petición a tus viajes</p>
+				</li>
+			</ul>
+		</ng-template>
+
+	</div>
+
+</div>

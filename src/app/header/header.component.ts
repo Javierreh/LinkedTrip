@@ -8,15 +8,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+    
+	usuario: any;
 
-  constructor(public viajerosService: ViajerosService, public router: Router) { }
+	constructor(public viajerosService: ViajerosService, private router: Router) { }
 
-  ngOnInit() {
-  }
+	async ngOnInit() {
+		if (localStorage.getItem('token')){
+			this.usuario = await this.viajerosService.getUserById(localStorage.getItem('token')).toPromise();
+			this.usuario = this.usuario[0];
+		}
+		
+	}
 
-  signOut() {
-  	localStorage.removeItem('token');
-  	this.router.navigate(['/home']);
-  }
+	signOut() {
+		localStorage.removeItem('token');
+		this.router.navigate(['/home']);
+	}
 
 }

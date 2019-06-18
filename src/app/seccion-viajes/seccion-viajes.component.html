@@ -9,7 +9,7 @@
 		<div *ngIf="viajes; else elseViajes">
 			<ul class="list-group list-group-flush">
 				
-				<li *ngFor="let viaje of viajes" class="list-group-item pt-4 pb-2">
+				<li *ngFor="let viaje of viajes; let i = index" class="list-group-item pt-4 pb-2">
 					<div class="titulo-viaje">
 						<p class="mb-0 d-inline"><i class="fas fa-long-arrow-alt-right"></i>{{ viaje?.titulo }}</p>
 					</div>
@@ -23,8 +23,9 @@
 
 					<div class="botones-viaje">
 						<a class="btn boton" [routerLink]="['/detalle-viaje', viaje?.id]">Ver más</a>
+						<a class="btn boton" [routerLink]="['/usuario', 'viajes', 'foro', viaje?.id]">Foro</a>
 						<a class="btn boton" [routerLink]="['/usuario', 'viajes', 'editar', viaje.id]">Editar</a>
-						<a class="btn boton boton-cerrar">Cerrar</a>
+						<a class="btn boton boton-cerrar" (click)="eliminarViaje(i)">Cerrar</a>
 					</div>					
 				</li>
 
@@ -51,7 +52,7 @@
 		<div *ngIf="viajesParticipo; else elseParticipo">
 			<ul class="list-group list-group-flush">
 				
-				<li *ngFor="let viajePar of viajesParticipo" class="list-group-item pt-4 pb-2">
+				<li *ngFor="let viajePar of viajesParticipo; let i = index" class="list-group-item pt-4 pb-2">
 					<div class="titulo-viaje">
 						<p class="mb-0 d-inline"><i class="fas fa-long-arrow-alt-right"></i>{{ viajePar?.titulo }}</p>
 					</div>
@@ -65,7 +66,8 @@
 
 					<div class="botones-viaje">
 						<a class="btn boton" [routerLink]="['/detalle-viaje', viajePar?.id]">Ver más</a>
-						<a class="btn boton boton-cerrar">Salir</a>
+						<a class="btn boton" [routerLink]="['/usuario', 'viajes', 'foro', viajePar?.id]">Foro</a>
+						<a class="btn boton boton-cerrar" (click)="salirViaje(i)">Salir</a>
 					</div>					
 				</li>
 
@@ -90,3 +92,4 @@
 <div class="d-block text-center mx-auto my-4">
 	<a class="btn btn-lg boton mx-3" (click)="handleClick()">Nuevo Viaje</a>
 </div>
+

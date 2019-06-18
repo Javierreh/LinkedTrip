@@ -7,7 +7,6 @@ a.boton:hover {
 }
 
 .mis-viajes ul li {
-	/*background-color: rgba(7,70,132,0.2);*/
 	border: 1px solid #eee;
 	padding-bottom: 0px;
 }
@@ -78,4 +77,9 @@ a.boton:hover {
 	.botones-viaje {
 		text-align: center;
 	}
+
+	.botones-viaje a {
+		font-size: 0.75em;
+	}
+
 }

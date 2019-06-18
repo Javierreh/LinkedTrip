@@ -1,3 +1,48 @@
-<p>
-  enviar-peticion works!
-</p>
+<main>
+	<section class="container-fluid enviar-peticion">
+
+		<div class="container">
+
+			<div class="cabeceras-perfil">
+				<h2>Enviar petición</h2>
+			</div>
+
+			<div>
+				<ul class="list-group list-group-flush">
+					
+					<li class="list-group-item pt-4 pb-2">
+						<div class="titulo-viaje">
+							<p class="mb-0 d-inline"><i class="fas fa-long-arrow-alt-right"></i>{{ viaje?.titulo }}</p>
+						</div>
+
+						<div class="contenido-viaje d-flex justify-content-between flex-wrap mt-3 text-muted">
+							<div><p><i class="far fa-calendar-alt"></i> {{ viaje?.fecha_inicio | date: 'dd-MM-y' }}</p></div>
+							<div><p><i class="fas fa-map-marked"></i> {{ viaje?.total_destinos }} Destinos</p></div>
+							<div><p><i class="fas fa-hiking"></i> {{ viaje?.total_actividades }} Actividades</p></div>
+							<div><p><i class="fas fa-users"></i> {{ viaje?.total_viajeros + 1 }} / {{ viaje?.viajeros_max}} viajeros</p></div>
+						</div>
+						<div class="botones-viaje">
+							<a class="btn boton" [routerLink]="['/detalle-viaje', idViaje]">Ver más</a>
+						</div>				
+					</li>
+				</ul>
+				
+				<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item pt-4 pb-2">
+							<p class="envia d-inline-block">Envia tu petición:</p>
+							<textarea formControlName="comentario" class="form-control" rows="5" maxlength="600"></textarea>
+							<div class="text-center pt-3 pb-2">
+								<input class="btn boton" type="submit" value="Enviar petición">
+							</div>
+						</li>
+					</ul>
+				</form>
+				
+			</div>
+
+		</div>
+
+	</section>
+
+</main>

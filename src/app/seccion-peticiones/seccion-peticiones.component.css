@@ -1,0 +1,76 @@
+.mis-peticiones ul li {
+	border: 1px solid #eee;
+	padding-bottom: 0px;
+}
+
+
+.mis-peticiones ul li div.titulo-viaje {
+	padding: 0px 10px 3px 14px;
+	color: rgba(7,70,132,0.7);
+	font-weight: bold;
+	border-radius: 10px;
+	margin-right: 20px; 
+}
+
+
+.mis-peticiones ul li div.titulo-viaje p i {
+	position: relative;
+	top: 4px;
+	margin-right: 8px;
+	font-size: 1.4em
+}
+
+
+.botones-viaje a {
+	margin: 4px 2px;
+}
+
+
+.footer-mensaje {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+
+a.eliminar-peticion {
+	color: darkred;
+	border-color: darkred;
+}
+
+a.eliminar-peticion:hover {
+	color: white;
+	background-color: darkred;
+}
+
+a.aceptar-peticion {
+	color: darkgreen;
+	border-color: darkgreen;
+}
+
+a.aceptar-peticion:hover {
+	color: white;
+	background-color: darkgreen;
+}
+
+a.enlace-viajero {
+	margin-left: 10px;
+	text-decoration: underline;
+	color: rgba(7,70,132,0.7);
+	cursor: pointer;
+}
+
+a.enlace-viajero:hover {
+	color: blue;
+}
+
+@media (max-width: 776px) {
+	.footer-mensaje {
+		flex-direction: column;
+	}
+
+	.botones-viaje a {
+		font-size: 0.8em;
+	}
+}

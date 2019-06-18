@@ -16,6 +16,10 @@ export class ViajesService {
 		return this.http.get('http://localhost:3000/api/viajes/' + idViaje)
 	}
 
+	getViajeByIdResumen(idViaje) {
+		return this.http.get('http://localhost:3000/api/viajes/resumen/' + idViaje)
+	}
+
 	getViajeByIdSimple(idViaje) {
 		return this.http.get('http://localhost:3000/api/viajes/simple/' + idViaje)
 	}
@@ -48,12 +52,24 @@ export class ViajesService {
 		return this.http.get('http://localhost:3000/api/viajes/destino/'+ datosDestino.nombre + '/' + datosDestino.longitud + '/' + datosDestino.latitud)
 	}
 
+	getDestinosByIdViaje(id_viaje) {
+		return this.http.get('http://localhost:3000/api/viajes/destino/viaje/' + id_viaje)
+	}
+
 	insertActividad(datosActividad) {
 		return this.http.post('http://localhost:3000/api/viajes/actividad/new', datosActividad);
 	}
 
+	getActividadesByIdViaje(id_viaje) {
+		return this.http.get('http://localhost:3000/api/viajes/actividades/viaje/' + id_viaje)
+	}
+
 	editViaje(pFormulario) {
 		return this.http.put('http://localhost:3000/api/viajes/edit', pFormulario);
+	}
+
+	deleteViaje(id_viaje) {
+		return this.http.delete('http://localhost:3000/api/viajes/delete/' + id_viaje);
 	}
 
 }

@@ -67,12 +67,15 @@ export class SeccionPeticionesComponent implements OnInit {
 
 	async aceptoPeticion(i) {
 		let datosInsertMiembro = { fk_viajeros: this.peticionesRecibidas[i].id_viajero, fk_viajes: this.peticionesRecibidas[i].id_viaje }
-
-		await this.peticionesService.insertMiembro(datosInsertMiembro).toPromise
-
+		console.log(datosInsertMiembro);
+		let prueba;
+		prueba = await this.peticionesService.insertMiembro(datosInsertMiembro).toPromise();
+		console.log(prueba);
 		let datos = { id_peticion:  this.peticionesRecibidas[i].id_peticion }
 
 		await this.peticionesService.aceptarPeticion(datos).toPromise();
+
+		window.location.reload();
 	}
 
 }

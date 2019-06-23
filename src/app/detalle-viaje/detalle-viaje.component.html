@@ -105,7 +105,7 @@
 						<ul class="text-muted d-flex justify-content-center">
 							<li *ngIf="destinos == null || destinos == ''; else elseMapa">No hay destinos añadidos al viaje</li>
 							<ng-template #elseMapa>	
-								<li class="d-flex justify-content-center">
+								<li class="mapdiv d-flex justify-content-center">
 									<div #googleMap class="map"></div>
 								</li>
 							</ng-template>

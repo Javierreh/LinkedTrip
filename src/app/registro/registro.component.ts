@@ -14,6 +14,8 @@ export class RegistroComponent implements OnInit {
 
 	insertado: any;
 	login: any;
+	checkUsuario: any;
+	usuarioRepetido: any;
 
 	constructor(private viajerosService: ViajerosService, private router: Router) {
 		this.formulario = new FormGroup({
@@ -53,15 +55,22 @@ export class RegistroComponent implements OnInit {
 	}
 	
 	async onSubmit() {
-		this.insertado = await this.viajerosService.insertViajero(this.formulario.value).toPromise();
 
-		if (this.insertado.insertId) {
-			this.login = await this.viajerosService.loginUser(this.formulario.value).toPromise()
-			localStorage.setItem('token', this.login.token);
-			this.router.navigate(['/usuario']);
+		this.checkUsuario = await this.viajerosService.checkUsername(this.formulario.value.usuario).toPromise();
+
+		if (this.checkUsuario.length > 0) {
+			this.usuarioRepetido = "Nombre de usuario inválido"
 		}
 		else {
-			this.router.navigate(['/home']);
+			this.insertado = await this.viajerosService.insertViajero(this.formulario.value).toPromise();
+			if (this.insertado.insertId) {
+				this.login = await this.viajerosService.loginUser(this.formulario.value).toPromise()
+				localStorage.setItem('token', this.login.token);
+				this.router.navigate(['/usuario']);
+			}
+			else {
+				this.router.navigate(['/home']);
+			}
 		}
 	}	
 

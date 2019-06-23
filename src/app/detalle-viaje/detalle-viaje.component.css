@@ -119,10 +119,13 @@ main section.detalle-viaje {
 	margin: auto 15px;
 }
 
+.mapdiv {
+	width: 100%;
+}
 
 .map {
-	width: 600px;
-	height: 600px;
+	width: 100%;
+	height: 300px;
 }
 
 

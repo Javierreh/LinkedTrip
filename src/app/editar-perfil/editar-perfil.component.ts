@@ -22,11 +22,7 @@ export class EditarPerfilComponent implements OnInit {
 	imageUrl: string;
 	editado: any;
 
-	constructor(private activatedRoute: ActivatedRoute, private viajerosService: ViajerosService, private storage: AngularFireStorage, private router: Router) {
-		// this.activatedRoute.parent.params.subscribe(params => {
-		// 	this.idViajero = params.id;
-		// });
-	}
+	constructor(private activatedRoute: ActivatedRoute, private viajerosService: ViajerosService, private storage: AngularFireStorage, private router: Router) { }
 
 	async ngOnInit() {
 		
@@ -39,15 +35,9 @@ export class EditarPerfilComponent implements OnInit {
 			id: new FormControl(this.viajero.id, [
 				Validators.required
 			]),
-			usuario: new FormControl(this.viajero.usuario, [
-				Validators.required
-			]),
 			email: new FormControl(this.viajero.email, [
 				Validators.required
 			]),
-			// password: new FormControl('******', [
-			// 	Validators.required
-			// ]),
 			nombre: new FormControl(this.viajero.nombre, [
 				Validators.required
 			]),
@@ -80,10 +70,9 @@ export class EditarPerfilComponent implements OnInit {
 			]),
 			intereses: new FormControl(this.viajero.intereses, [
 				Validators.required
-			]),
+			])
 		});
-		console.log(this.formulario.value);
-		console.log(this.formulario.value.fecha_nacimiento)
+
 	}
 
 
@@ -92,15 +81,14 @@ export class EditarPerfilComponent implements OnInit {
 		if (this.imageUrl) {
 			this.formulario.value.foto_perfil = this.imageUrl;
 		}
-		console.log(this.formulario.value);
 		this.formulario.value.password = this.viajero.password;
+		this.formulario.value.usuario = this.viajero.usuario;
 		this.editado = await this.viajerosService.editUsuario(this.formulario.value).toPromise()
 		this.router.navigate(['usuario', 'perfil'])
 	}
 
 	onChangeImage($event) {
 		const image = $event.target.files[0];
-		console.log(image.type)
 		if(image.type === "image/jpeg" || image.type === 'image/png') {
 			const filePath = 'usuarios/foto_perfil_'+ this.viajero.id +'.jpg';
 			const fileRef = this.storage.ref(filePath);

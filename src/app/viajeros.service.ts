@@ -9,10 +9,6 @@ export class ViajerosService {
 
 	constructor(private http: HttpClient) { }
 
-	// getUserById(idUsuario) {
-	// 	return this.http.get('http://localhost:3000/api/viajeros/usuario/'+ idUsuario);
-	// }
-
 	getUserById(pToken) {
 		let headers = new HttpHeaders();
 		headers = headers.set('token', pToken);
@@ -37,6 +33,10 @@ export class ViajerosService {
 
 	loginUser(pFormulario) {
 		return this.http.post('http://localhost:3000/api/viajeros/login', pFormulario);
+	}
+
+	checkUsername(username) {
+		return this.http.get('http://localhost:3000/api/viajeros/username/' + username);
 	}
 
 	isUserLogged() {

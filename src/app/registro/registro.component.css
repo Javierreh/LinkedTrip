@@ -71,6 +71,13 @@ input.ng-valid.ng-touched {
 	font-size: 0.8em
 }
 
+.titleError2 {
+	position: relative;
+	color: darkred;
+	padding: 1.5px 0 0 1.5px;
+	font-size: 0.8em
+}
+
 @media (max-width: 576px) {
 	main .card {
 		width: 90%;

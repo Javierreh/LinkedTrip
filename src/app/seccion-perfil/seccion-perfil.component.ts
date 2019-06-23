@@ -14,20 +14,9 @@ export class SeccionPerfilComponent implements OnInit {
 	viajero: any;
 	edad: number;
 
-	constructor(private activatedRoute: ActivatedRoute, private viajerosService: ViajerosService, private router: Router) {
-		// this.activatedRoute.parent.params.subscribe(params => {
-		// 	this.idViajero = params.id;
-		// });
-	}
+	constructor(private activatedRoute: ActivatedRoute, private viajerosService: ViajerosService, private router: Router) { }
 
 	ngOnInit() {
-		// this.viajerosService.getUserById(this.idViajero).subscribe(res => {
-		// 	this.edad = moment().diff(res[0].fecha_nacimiento, 'years', false);
-		// 	if(res[0].intereses != null)
-		// 		res[0].intereses = res[0].intereses.split(', ');
-		// 	this.viajero = res[0];
-		// 	console.log(this.viajero);
-		// });
 
 		if (!localStorage.getItem('token')) {
 			this.router.navigate(['/home']);
@@ -38,7 +27,6 @@ export class SeccionPerfilComponent implements OnInit {
 				if(res[0].intereses != null)
 					res[0].intereses = res[0].intereses.split(', ');
 				this.viajero = res[0];
-				console.log(this.viajero);
 			});
 		}
 
